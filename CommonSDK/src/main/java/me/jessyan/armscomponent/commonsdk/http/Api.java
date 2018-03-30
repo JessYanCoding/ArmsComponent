@@ -1,8 +1,8 @@
-package me.jessyan.armscomponent.commonsdk.core;
+package me.jessyan.armscomponent.commonsdk.http;
 
 /**
  * ================================================
- * CommonSDK 的 Api 可以定义公用的关于 API 的相关常量, 比如说请求地址, 错误码等, 每个组件的 Api 中定义组件自己的私有信息
+ * CommonSDK 的 Api 可以定义公用的关于 API 的相关常量, 比如说请求地址, 错误码等, 每个组件的 Api 可以定义组件自己的私有常量
  *
  * Created by JessYan on 30/03/2018 17:16
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
