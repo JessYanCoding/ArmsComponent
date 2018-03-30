@@ -37,7 +37,4 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
     api 'me.jessyan:arms:2.3.5'
-    testApi 'junit:junit:4.12'
-    androidTestApi 'com.android.support.test:runner:1.0.1'
-    androidTestApi 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
