@@ -37,4 +37,9 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
     api 'me.jessyan:arms:2.3.5'
+    //tools
+    api(rootProject.ext.dependencies["arouter"]) {
+        exclude module: 'support-v4'
+        exclude module: 'support-annotations'
+    }
 }
