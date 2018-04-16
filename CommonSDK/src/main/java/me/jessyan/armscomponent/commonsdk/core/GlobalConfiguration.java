@@ -19,6 +19,7 @@ import butterknife.ButterKnife;
 import me.jessyan.armscomponent.commonsdk.BuildConfig;
 import me.jessyan.armscomponent.commonsdk.http.Api;
 import me.jessyan.armscomponent.commonsdk.http.SSLSocketClient;
+import me.jessyan.armscomponent.commonsdk.imgaEngine.Strategy.CommonGlideImageLoaderStrategy;
 import okhttp3.OkHttpClient;
 import timber.log.Timber;
 
@@ -35,6 +36,7 @@ public class GlobalConfiguration implements ConfigModule {
         if (!BuildConfig.LOG_DEBUG) //Release 时,让框架不再打印 Http 请求和响应的信息
             builder.printHttpLogLevel(RequestInterceptor.Level.NONE);
         builder.baseurl(Api.APP_DOMAIN)
+                .imageLoaderStrategy(new CommonGlideImageLoaderStrategy())
                 .globalHttpHandler(new GlobalHttpHandlerImpl(context))
                 .responseErrorListener(new ResponseErrorListenerImpl())
                 .gsonConfiguration((context1, gsonBuilder) -> {//这里可以自己自定义配置Gson的参数
