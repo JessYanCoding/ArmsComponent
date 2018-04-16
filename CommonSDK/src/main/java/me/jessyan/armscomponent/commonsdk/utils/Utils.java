@@ -15,6 +15,10 @@
  */
 package me.jessyan.armscomponent.commonsdk.utils;
 
+import android.content.Context;
+
+import com.alibaba.android.arouter.launcher.ARouter;
+
 /**
  * ================================================
  * Created by JessYan on 30/03/2018 17:16
@@ -25,5 +29,14 @@ package me.jessyan.armscomponent.commonsdk.utils;
 public class Utils {
     private Utils() {
         throw new IllegalStateException("you can't instantiate me!");
+    }
+
+    public static void navigation(String path) {
+        ARouter.getInstance().build(path).navigation();
+    }
+
+
+    public static void navigations(Context context, String path) {
+        ARouter.getInstance().build(path).navigation(context);
     }
 }
