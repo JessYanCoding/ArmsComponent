@@ -32,22 +32,22 @@ public class ActivityLifecycleCallbacksImpl implements Application.ActivityLifec
             //而 findViewById 必须在 Activity setContentView() 后才有效,所以将以下代码从之前的 onActivityCreated 中移动到 onActivityStarted 中执行
             activity.getIntent().putExtra("isInitToolbar", true);
             //这里全局给Activity设置toolbar和title,你想象力有多丰富,这里就有多强大,以前放到BaseActivity的操作都可以放到这里
-            if (ArmsUtils.findViewByName(activity.getApplicationContext(), activity, "toolbar") != null) {
+            if (ArmsUtils.findViewByName(activity.getApplicationContext(), activity, "public_toolbar") != null) {
                 if (activity instanceof AppCompatActivity) {
                     ((AppCompatActivity) activity).setSupportActionBar(ArmsUtils.findViewByName(activity.getApplicationContext(), activity, "toolbar"));
                     ((AppCompatActivity) activity).getSupportActionBar().setDisplayShowTitleEnabled(false);
                 } else {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        activity.setActionBar(ArmsUtils.findViewByName(activity.getApplicationContext(), activity, "toolbar"));
+                        activity.setActionBar(ArmsUtils.findViewByName(activity.getApplicationContext(), activity, "public_toolbar"));
                         activity.getActionBar().setDisplayShowTitleEnabled(false);
                     }
                 }
             }
-            if (ArmsUtils.findViewByName(activity.getApplicationContext(), activity, "toolbar_title") != null) {
-                ((TextView) ArmsUtils.findViewByName(activity.getApplicationContext(), activity, "toolbar_title")).setText(activity.getTitle());
+            if (ArmsUtils.findViewByName(activity.getApplicationContext(), activity, "public_toolbar_title") != null) {
+                ((TextView) ArmsUtils.findViewByName(activity.getApplicationContext(), activity, "public_toolbar_title")).setText(activity.getTitle());
             }
-            if (ArmsUtils.findViewByName(activity.getApplicationContext(), activity, "toolbar_back") != null) {
-                ArmsUtils.findViewByName(activity.getApplicationContext(), activity, "toolbar_back").setOnClickListener(v -> {
+            if (ArmsUtils.findViewByName(activity.getApplicationContext(), activity, "public_toolbar_back") != null) {
+                ArmsUtils.findViewByName(activity.getApplicationContext(), activity, "public_toolbar_back").setOnClickListener(v -> {
                     activity.onBackPressed();
                 });
             }

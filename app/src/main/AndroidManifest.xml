@@ -16,7 +16,7 @@
         android:icon="@mipmap/arms_log"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/public_AppTheme">
         <activity android:name=".mvp.ui.activity.UserActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

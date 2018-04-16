@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/toolbar"
+    android:id="@+id/public_toolbar"
     android:layout_width="match_parent"
     android:layout_height="120px"
     android:background="?attr/colorPrimary"
@@ -11,7 +11,7 @@
     >
 
     <com.zhy.autolayout.AutoRelativeLayout
-        android:id="@+id/toolbar_back"
+        android:id="@+id/public_toolbar_back"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="left"
@@ -23,12 +23,12 @@
             android:layout_marginLeft="30px"
             android:layout_marginRight="30px"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_arrow_back_white_24dp"/>
+            android:src="@drawable/public_ic_arrow_back_white_24dp"/>
 
     </com.zhy.autolayout.AutoRelativeLayout>
 
     <TextView
-        android:id="@+id/toolbar_title"
+        android:id="@+id/public_toolbar_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18dp"

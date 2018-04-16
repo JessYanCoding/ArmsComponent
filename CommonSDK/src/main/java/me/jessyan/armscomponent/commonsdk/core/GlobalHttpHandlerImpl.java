@@ -13,23 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.app.app;
+package me.jessyan.armscomponent.commonsdk.core;
 
 import android.content.Context;
-import android.text.TextUtils;
 
-import com.google.gson.reflect.TypeToken;
 import com.jess.arms.http.GlobalHttpHandler;
-import com.jess.arms.http.log.RequestInterceptor;
-import com.jess.arms.utils.ArmsUtils;
 
-import java.util.List;
-
-import me.jessyan.armscomponent.app.mvp.model.entity.User;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-import timber.log.Timber;
 
 /**
  * ================================================
@@ -51,17 +43,6 @@ public class GlobalHttpHandlerImpl implements GlobalHttpHandler {
     public Response onHttpResultResponse(String httpResult, Interceptor.Chain chain, Response response) {
                     /* 这里可以先客户端一步拿到每一次http请求的结果,可以解析成json,做一些操作,如检测到token过期后
                        重新请求token,并重新执行请求 */
-
-        if (!TextUtils.isEmpty(httpResult) && RequestInterceptor.isJson(response.body().contentType())) {
-            try {
-                List<User> list = ArmsUtils.obtainAppComponentFromContext(context).gson().fromJson(httpResult, new TypeToken<List<User>>() {}.getType());
-                User user = list.get(0);
-                Timber.w("Result ------> " + user.getLogin() + "    ||   Avatar_url------> " + user.getAvatarUrl());
-            } catch (Exception e) {
-                e.printStackTrace();
-                return response;
-            }
-        }
 
                  /* 这里如果发现token过期,可以先请求最新的token,然后在拿新的token放入request里去重新请求
                     注意在这个回调之前已经调用过proceed,所以这里必须自己去建立网络请求,如使用okhttp使用新的request去请求

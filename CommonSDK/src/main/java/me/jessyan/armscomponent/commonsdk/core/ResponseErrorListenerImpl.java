@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.app.app;
+package me.jessyan.armscomponent.commonsdk.core;
 
 import android.content.Context;
 import android.net.ParseException;
