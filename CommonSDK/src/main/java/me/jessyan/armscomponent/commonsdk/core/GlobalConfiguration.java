@@ -10,7 +10,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.jess.arms.base.delegate.AppLifecycles;
 import com.jess.arms.di.module.ClientModule;
 import com.jess.arms.di.module.GlobalConfigModule;
-import com.jess.arms.http.RequestInterceptor;
+import com.jess.arms.http.log.RequestInterceptor;
 import com.jess.arms.integration.ConfigModule;
 
 import java.util.List;
