@@ -1,3 +1,18 @@
+/*
+ * Copyright 2018 JessYan
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package me.jessyan.armscomponent.commonsdk.core;
 
 import android.app.Application;
@@ -25,9 +40,13 @@ import timber.log.Timber;
 
 
 /**
- * app的全局配置信息在此配置,需要将此实现类声明到AndroidManifest中
- * Created by jess on 12/04/2017 17:25
- * Contact with jess.yan.effort@gmail.com
+ * ================================================
+ * CommonSDK 的 ConfigModule 含有有每个组件都可共用的配置信息, 每个组件的 AndroidManifest 都应该声明此 ConfigModule
+ * <p>
+ * Created by JessYan on 30/03/2018 17:16
+ * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
+ * <a href="https://github.com/JessYanCoding">Follow me</a>
+ * ================================================
  */
 public class GlobalConfiguration implements ConfigModule {
 
@@ -52,9 +71,9 @@ public class GlobalConfiguration implements ConfigModule {
                     }
                 })
                 .rxCacheConfiguration((context1, rxCacheBuilder) -> {//这里可以自己自定义配置RxCache的参数
-            rxCacheBuilder.useExpiredDataIfLoaderNotAvailable(true);
-            return null;
-        });
+                    rxCacheBuilder.useExpiredDataIfLoaderNotAvailable(true);
+                    return null;
+                });
     }
 
     @Override

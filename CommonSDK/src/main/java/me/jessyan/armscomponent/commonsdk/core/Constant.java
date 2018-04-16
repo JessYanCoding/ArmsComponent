@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 JessYan
+ * Copyright 2018 JessYan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package me.jessyan.armscomponent.commonsdk.core;
 /**
  * ================================================
  * CommonSDK 的 Constant 可以定义公用的常量, 比如关于业务的常量或者正则表达式, 每个组件的 Constant 可以定义组件自己的私有常量
- *
+ * <p>
  * Created by JessYan on 30/03/2018 17:32
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
