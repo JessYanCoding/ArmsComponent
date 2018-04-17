@@ -5,16 +5,16 @@
 
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_gravity="center"
-        android:layout_width="240px"
-        android:layout_height="160px"
+        android:layout_width="@dimen/public_width_240px"
+        android:layout_height="@dimen/public_height_160px"
         android:background="@drawable/public_shape_gray_corner_12px"
         android:gravity="center"
         android:orientation="vertical">
 
         <ProgressBar
-            android:layout_marginTop="10px"
-            android:layout_width="70px"
-            android:layout_height="70px"
+            android:layout_marginTop="@dimen/public_mar_top_10px"
+            android:layout_width="@dimen/public_width_70px"
+            android:layout_height="@dimen/public_height_70px"
             android:indeterminate="true"
             android:indeterminateBehavior="repeat"
             android:indeterminateDrawable="@drawable/public_loading_ani" />
@@ -23,7 +23,7 @@
             android:id="@+id/txt_load"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25px"
+            android:layout_marginTop="@dimen/public_mar_top_25px"
             android:text="@string/public_loading"
             android:textColor="@color/public_white" />
 

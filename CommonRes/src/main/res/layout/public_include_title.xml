@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/public_toolbar"
     android:layout_width="match_parent"
-    android:layout_height="120px"
+    android:layout_height="@dimen/public_height_120px"
     android:background="?attr/colorPrimary"
     app:contentInsetStart="0dp"
     >
@@ -20,8 +20,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30px"
-            android:layout_marginRight="30px"
+            android:layout_marginLeft="@dimen/public_mar_left_30px"
+            android:layout_marginRight="@dimen/public_mar_right_30px"
             android:layout_centerVertical="true"
             android:src="@drawable/public_ic_arrow_back_white_24dp"/>
 
@@ -31,10 +31,10 @@
         android:id="@+id/public_toolbar_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:textColor="#fff"
+        android:textSize="@dimen/public_font_18sp"
+        android:textColor="@color/public_white"
         android:layout_gravity="center"
-        tools:text="MVPArt"/>
+        tools:text="@string/public_app_name"/>
 
 
 </com.jess.arms.widget.autolayout.AutoToolbar>
