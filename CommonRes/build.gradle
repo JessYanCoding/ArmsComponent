@@ -30,4 +30,5 @@ dependencies {
             exclude module: 'support-annotations'
     }
     api rootProject.ext.dependencies["paginate"]
+    api rootProject.ext.dependencies["lottie"]
 }

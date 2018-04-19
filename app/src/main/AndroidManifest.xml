@@ -27,6 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".mvp.ui.activity.MainActivity"
+                  android:configChanges="orientation|screenSize"
+                  android:screenOrientation="portrait"
+            />
         <activity android:name=".mvp.ui.activity.UserActivity"/>
         <!-- autolayout meta
         配置设计图的宽高,配合AutoLauout控件使用,在设计图尺寸以外的其它尺寸手机上,也能达到和设计图一样的效果
