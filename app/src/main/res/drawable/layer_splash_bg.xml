@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/color_241e20" />
+
+    <!-- 顶层Logo居中 -->
+    <item android:bottom="140dp">
+        <bitmap
+            android:gravity="center"
+            android:src="@mipmap/arms_log" />
+    </item>
+</layer-list>

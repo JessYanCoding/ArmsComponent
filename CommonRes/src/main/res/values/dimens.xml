@@ -3,15 +3,17 @@
     <dimen name="public_activity_horizontal_margin">16dp</dimen>
     <dimen name="public_activity_vertical_margin">16dp</dimen>
     //字体
-    <dimen name="public_font_24sp">24sp</dimen>
-    <dimen name="public_font_48sp">48sp</dimen>
     <dimen name="public_font_11sp">11sp</dimen>
     <dimen name="public_font_12sp">12sp</dimen>
     <dimen name="public_font_13sp">13sp</dimen>
     <dimen name="public_font_14sp">14sp</dimen>
     <dimen name="public_font_16sp">16sp</dimen>
     <dimen name="public_font_18sp">18sp</dimen>
+    <dimen name="public_font_24sp">24sp</dimen>
+    <dimen name="public_font_30sp">30sp</dimen>
+    <dimen name="public_font_32sp">32sp</dimen>
     <dimen name="public_font_36sp">36sp</dimen>
+    <dimen name="public_font_48sp">48sp</dimen>
 
     //高
     <dimen name="public_height_8px">8px</dimen>

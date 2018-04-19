@@ -22,11 +22,11 @@ import android.widget.TextView;
 import com.jess.arms.base.BaseHolder;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.http.imageloader.ImageLoader;
-import com.jess.arms.http.imageloader.glide.ImageConfigImpl;
 import com.jess.arms.utils.ArmsUtils;
 
 import butterknife.BindView;
 import io.reactivex.Observable;
+import me.jessyan.armscomponent.commonsdk.imgaEngine.config.CommonImageConfigImpl;
 import me.jessyan.armscomponent.zhihu.R;
 import me.jessyan.armscomponent.zhihu.mvp.model.entity.User;
 
@@ -62,7 +62,7 @@ public class UserItemHolder extends BaseHolder<User> {
 
         //itemView 的 Context 就是 Activity, Glide 会自动处理并和该 Activity 的生命周期绑定
         mImageLoader.loadImage(itemView.getContext(),
-                ImageConfigImpl
+                CommonImageConfigImpl
                         .builder()
                         .url(data.getAvatarUrl())
                         .imageView(mAvatar)
@@ -72,7 +72,7 @@ public class UserItemHolder extends BaseHolder<User> {
 
     @Override
     protected void onRelease() {
-        mImageLoader.clear(mAppComponent.application(), ImageConfigImpl.builder()
+        mImageLoader.clear(mAppComponent.application(), CommonImageConfigImpl.builder()
                 .imageViews(mAvatar)
                 .build());
     }
