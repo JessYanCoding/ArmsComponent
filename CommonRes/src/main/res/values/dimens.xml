@@ -9,6 +9,7 @@
     <dimen name="public_font_14sp">14sp</dimen>
     <dimen name="public_font_16sp">16sp</dimen>
     <dimen name="public_font_18sp">18sp</dimen>
+    <dimen name="public_font_20sp">20sp</dimen>
     <dimen name="public_font_24sp">24sp</dimen>
     <dimen name="public_font_30sp">30sp</dimen>
     <dimen name="public_font_32sp">32sp</dimen>
@@ -70,6 +71,7 @@
     <dimen name="public_height_692px">692px</dimen>
     <dimen name="public_height_740px">740px</dimen>
     <dimen name="public_height_762px">762px</dimen>
+    <dimen name="public_height_830px">830px</dimen>
 
     //宽
     <dimen name="public_width_8px">8px</dimen>
