@@ -25,7 +25,6 @@ import java.util.List;
 import me.jessyan.armscomponent.zhihu.R;
 import me.jessyan.armscomponent.zhihu.mvp.model.entity.User;
 import me.jessyan.armscomponent.zhihu.mvp.ui.holder.UserItemHolder;
-import me.jessyan.armscomponent.zhihu.mvp.ui.holder.UserItemHolder;
 
 /**
  * ================================================
@@ -48,6 +47,6 @@ public class UserAdapter extends DefaultAdapter<User> {
 
     @Override
     public int getLayoutId(int viewType) {
-        return R.layout.recycle_list;
+        return R.layout.zhihu_recycle_list;
     }
 }

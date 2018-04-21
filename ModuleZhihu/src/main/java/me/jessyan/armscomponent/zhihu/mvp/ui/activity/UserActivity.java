@@ -23,7 +23,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.base.DefaultAdapter;
 import com.jess.arms.di.component.AppComponent;
@@ -81,7 +80,7 @@ public class UserActivity extends BaseActivity<UserPresenter> implements UserCon
 
     @Override
     public int initView(@Nullable Bundle savedInstanceState) {
-        return R.layout.activity_user;
+        return R.layout.zhihu_activity_user;
     }
 
     @Override
