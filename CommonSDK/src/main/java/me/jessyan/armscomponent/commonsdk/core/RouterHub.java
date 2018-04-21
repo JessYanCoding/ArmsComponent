@@ -19,11 +19,42 @@ package me.jessyan.armscomponent.commonsdk.core;
  * ================================================
  * RouterHub 用来定义路由器的路由地址, 以组件名作为前缀, 对每个组件的路由地址进行分组, 统一查看和管理所有分组的路由地址
  * 路由地址的命名规则为 组件名 + 页面名, 如订单组件的订单详情页的路由地址可以命名为 "/order/OrderDetailActivity"
- *
+ * <p>
  * Created by JessYan on 30/03/2018 18:07
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
 public interface RouterHub {
+    /**
+     * 组名
+     */
+    String APP = "/app";//宿主 App 组件
+    String ZHIHU = "/zhihu";//知乎组件
+    String GANK = "/gank";//干货集中营组件
+    String GOLD = "/gold";//稀土掘金组件
+
+
+    /**
+     * 宿主 App 分组
+     */
+    String APP_SPLASHACTIVITY = APP + "/SplashActivity";
+    String APP_MAINACTIVITY = APP + "/MainActivity";
+
+
+    /**
+     * 知乎分组
+     */
+
+
+    /**
+     * 干货集中营分组
+     */
+
+
+    /**
+     * 稀土掘金分组
+     */
+
+
 }

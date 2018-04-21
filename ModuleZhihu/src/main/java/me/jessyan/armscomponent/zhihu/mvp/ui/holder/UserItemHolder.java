@@ -27,7 +27,7 @@ import com.jess.arms.utils.ArmsUtils;
 import butterknife.BindView;
 import io.reactivex.Observable;
 import me.jessyan.armscomponent.commonsdk.imgaEngine.config.CommonImageConfigImpl;
-import me.jessyan.armscomponent.zhihu.R;
+import me.jessyan.armscomponent.zhihu.R2;
 import me.jessyan.armscomponent.zhihu.mvp.model.entity.User;
 
 /**
@@ -41,9 +41,9 @@ import me.jessyan.armscomponent.zhihu.mvp.model.entity.User;
  */
 public class UserItemHolder extends BaseHolder<User> {
 
-    @BindView(R.id.iv_avatar)
+    @BindView(R2.id.iv_avatar)
     ImageView mAvatar;
-    @BindView(R.id.tv_name)
+    @BindView(R2.id.tv_name)
     TextView mName;
     private AppComponent mAppComponent;
     private ImageLoader mImageLoader;//用于加载图片的管理类,默认使用 Glide,使用策略模式,可替换框架

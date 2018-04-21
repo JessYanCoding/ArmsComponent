@@ -23,6 +23,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.base.DefaultAdapter;
 import com.jess.arms.di.component.AppComponent;
@@ -34,10 +35,8 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import me.jessyan.armscomponent.zhihu.R;
+import me.jessyan.armscomponent.zhihu.R2;
 import me.jessyan.armscomponent.zhihu.di.component.DaggerUserComponent;
-import me.jessyan.armscomponent.zhihu.di.module.UserModule;
-import me.jessyan.armscomponent.zhihu.mvp.contract.UserContract;
-import me.jessyan.armscomponent.zhihu.mvp.presenter.UserPresenter;
 import me.jessyan.armscomponent.zhihu.di.module.UserModule;
 import me.jessyan.armscomponent.zhihu.mvp.contract.UserContract;
 import me.jessyan.armscomponent.zhihu.mvp.presenter.UserPresenter;
@@ -56,9 +55,9 @@ import timber.log.Timber;
  */
 public class UserActivity extends BaseActivity<UserPresenter> implements UserContract.View, SwipeRefreshLayout.OnRefreshListener {
 
-    @BindView(R.id.recyclerView)
+    @BindView(R2.id.recyclerView)
     RecyclerView mRecyclerView;
-    @BindView(R.id.swipeRefreshLayout)
+    @BindView(R2.id.swipeRefreshLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
     @Inject
     RxPermissions mRxPermissions;
