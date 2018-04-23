@@ -23,7 +23,8 @@ public class RouterInterceptor implements IInterceptor {
 
     @Override
     public void process(Postcard postcard, InterceptorCallback callback) {
-        //这里示例的意思示, 如果用户没有登录就只能进入登录注册等划分到 ACCOUNT 分组的页面, 用户进入其他页面将全部拦截
+        callback.onContinue(postcard);
+        //这里示例的意思是, 如果用户没有登录就只能进入登录注册等划分到 ACCOUNT 分组的页面, 用户进入其他页面将全部被拦截
 //        if (postcard.getGroup().equals(RouterHub.ACCOUNT.split("/")[1])
 //            callback.onContinue(postcard);
 //        } else {

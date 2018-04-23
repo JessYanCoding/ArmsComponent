@@ -45,16 +45,16 @@ public interface RouterHub {
     /**
      * 知乎分组
      */
-
+    String ZHIHU_USERACTIVITY = ZHIHU + "/UserActivity";
 
     /**
      * 干货集中营分组
      */
-
+    String GANK_USERACTIVITY = GANK + "/UserActivity";
 
     /**
      * 稀土掘金分组
      */
-
+    String GOLD_USERACTIVITY = GOLD + "/UserActivity";
 
 }

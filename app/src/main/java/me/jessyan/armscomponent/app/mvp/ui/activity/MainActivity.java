@@ -28,6 +28,7 @@ import com.jess.arms.utils.ArmsUtils;
 import butterknife.OnClick;
 import me.jessyan.armscomponent.app.R;
 import me.jessyan.armscomponent.commonsdk.core.RouterHub;
+import me.jessyan.armscomponent.commonsdk.utils.Utils;
 
 /**
  * ================================================
@@ -71,10 +72,13 @@ public class MainActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bt_zhihu:
+                Utils.navigation(MainActivity.this, RouterHub.ZHIHU_USERACTIVITY);
                 break;
             case R.id.bt_gank:
+                Utils.navigation(MainActivity.this, RouterHub.GANK_USERACTIVITY);
                 break;
             case R.id.bt_gold:
+                Utils.navigation(MainActivity.this, RouterHub.GOLD_USERACTIVITY);
                 break;
         }
     }

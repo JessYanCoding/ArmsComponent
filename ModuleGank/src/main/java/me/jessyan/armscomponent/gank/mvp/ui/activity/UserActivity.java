@@ -23,6 +23,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.base.DefaultAdapter;
 import com.jess.arms.di.component.AppComponent;
@@ -33,6 +34,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import me.jessyan.armscomponent.commonsdk.core.RouterHub;
 import me.jessyan.armscomponent.gank.R;
 import me.jessyan.armscomponent.gank.R2;
 import me.jessyan.armscomponent.gank.di.component.DaggerUserComponent;
@@ -52,6 +54,7 @@ import timber.log.Timber;
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
+@Route(path = RouterHub.GANK_USERACTIVITY)
 public class UserActivity extends BaseActivity<UserPresenter> implements UserContract.View, SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R2.id.recyclerView)
