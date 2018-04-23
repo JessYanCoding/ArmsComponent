@@ -50,7 +50,7 @@ public interface RouterHub {
     /**
      * 干货集中营分组
      */
-    String GANK_USERACTIVITY = GANK + "/UserActivity";
+    String GANK_HOMEACTIVITY = GANK + "/HomeActivity";
 
     /**
      * 稀土掘金分组

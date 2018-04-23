@@ -75,7 +75,7 @@ public class MainActivity extends BaseActivity {
                 Utils.navigation(MainActivity.this, RouterHub.ZHIHU_HOMEACTIVITY);
                 break;
             case R.id.bt_gank:
-                Utils.navigation(MainActivity.this, RouterHub.GANK_USERACTIVITY);
+                Utils.navigation(MainActivity.this, RouterHub.GANK_HOMEACTIVITY);
                 break;
             case R.id.bt_gold:
                 Utils.navigation(MainActivity.this, RouterHub.GOLD_HOMEACTIVITY);
