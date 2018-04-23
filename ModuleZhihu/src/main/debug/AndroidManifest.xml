@@ -17,7 +17,9 @@
         android:label="@string/zhihu_module_name"
         android:supportsRtl="true"
         android:theme="@style/public_AppTheme">
-        <activity android:name=".mvp.ui.activity.UserActivity">
+        <activity android:name=".mvp.ui.activity.ZhihuHomeActivity"
+                  android:configChanges="orientation|screenSize"
+                  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

@@ -20,7 +20,7 @@ import com.jess.arms.di.scope.ActivityScope;
 
 import dagger.Component;
 import me.jessyan.armscomponent.zhihu.di.module.UserModule;
-import me.jessyan.armscomponent.zhihu.mvp.ui.activity.UserActivity;
+import me.jessyan.armscomponent.zhihu.mvp.ui.activity.ZhihuHomeActivity;
 
 /**
  * ================================================
@@ -35,5 +35,5 @@ import me.jessyan.armscomponent.zhihu.mvp.ui.activity.UserActivity;
 @ActivityScope
 @Component(modules = UserModule.class, dependencies = AppComponent.class)
 public interface UserComponent {
-    void inject(UserActivity activity);
+    void inject(ZhihuHomeActivity activity);
 }

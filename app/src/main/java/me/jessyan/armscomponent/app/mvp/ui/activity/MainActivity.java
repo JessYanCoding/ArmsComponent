@@ -72,7 +72,7 @@ public class MainActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bt_zhihu:
-                Utils.navigation(MainActivity.this, RouterHub.ZHIHU_USERACTIVITY);
+                Utils.navigation(MainActivity.this, RouterHub.ZHIHU_HOMEACTIVITY);
                 break;
             case R.id.bt_gank:
                 Utils.navigation(MainActivity.this, RouterHub.GANK_USERACTIVITY);

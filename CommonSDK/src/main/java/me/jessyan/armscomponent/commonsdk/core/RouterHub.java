@@ -45,7 +45,7 @@ public interface RouterHub {
     /**
      * 知乎分组
      */
-    String ZHIHU_USERACTIVITY = ZHIHU + "/UserActivity";
+    String ZHIHU_HOMEACTIVITY = ZHIHU + "/HomeActivity";
 
     /**
      * 干货集中营分组
