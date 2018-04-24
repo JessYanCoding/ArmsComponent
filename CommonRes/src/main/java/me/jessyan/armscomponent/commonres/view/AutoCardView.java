@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.gold.mvp.ui.widget;
+package me.jessyan.armscomponent.commonres.view;
 
 import android.content.Context;
 import android.support.v7.widget.CardView;

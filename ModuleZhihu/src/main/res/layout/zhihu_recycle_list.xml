@@ -1,28 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<me.jessyan.armscomponent.zhihu.mvp.ui.widget.AutoCardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                                    xmlns:tools="http://schemas.android.com/tools"
-                                                    android:layout_width="match_parent"
-                                                    android:layout_height="550px"
-                                                    android:layout_marginRight="15px"
-                                                    android:layout_marginBottom="15px"
+<me.jessyan.armscomponent.commonres.view.AutoCardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                      xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                      xmlns:tools="http://schemas.android.com/tools"
+                                                      android:layout_width="match_parent"
+                                                      android:layout_height="@dimen/public_height_240px"
+                                                      android:layout_marginTop="@dimen/public_mar_top_10px"
+                                                      android:layout_marginBottom="@dimen/public_mar_bottom_16px"
+                                                      android:layout_marginRight="@dimen/public_mar_right_15px"
+                                                      android:layout_marginLeft="@dimen/public_mar_left_15px"
+                                                      app:cardBackgroundColor="@color/public_white"
+                                                      app:cardCornerRadius="2dp"
+                                                      app:cardElevation="2dp"
+                                                      app:contentPadding="8dp"
     >
 
-    <ImageView
-        android:id="@+id/iv_avatar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        tools:src="@color/public_black" />
-
-
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="10px"
-        android:textColor="@color/public_white"
-        android:textSize="@dimen/public_font_18sp"
-        tools:text="ss" />
+        android:orientation="horizontal">
 
-</me.jessyan.armscomponent.zhihu.mvp.ui.widget.AutoCardView>
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@dimen/public_width_200px"
+            android:layout_height="@dimen/public_height_200px"
+            android:scaleType="centerCrop"
+            tools:src="@color/public_black"/>
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/public_mar_left_18px"
+            android:layout_height="wrap_content"
+            android:textColor="@color/public_black"
+            android:textSize="@dimen/public_font_18sp"
+            tools:text="ss"/>
+    </LinearLayout>
+
+</me.jessyan.armscomponent.commonres.view.AutoCardView>

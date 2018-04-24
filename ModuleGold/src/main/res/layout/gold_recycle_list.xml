@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<me.jessyan.armscomponent.gold.mvp.ui.widget.AutoCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<me.jessyan.armscomponent.commonres.view.AutoCardView xmlns:android="http://schemas.android.com/apk/res/android"
                                                     xmlns:tools="http://schemas.android.com/tools"
                                                     android:layout_width="match_parent"
                                                     android:layout_height="550px"
@@ -25,4 +25,4 @@
         android:textSize="@dimen/public_font_18sp"
         tools:text="ss" />
 
-</me.jessyan.armscomponent.gold.mvp.ui.widget.AutoCardView>
+</me.jessyan.armscomponent.commonres.view.AutoCardView>

@@ -15,15 +15,11 @@
  */
 package me.jessyan.armscomponent.zhihu.mvp.model.api.service;
 
-import java.util.List;
-
 import io.reactivex.Observable;
 import me.jessyan.armscomponent.zhihu.mvp.model.entity.DailyListBean;
-import me.jessyan.armscomponent.zhihu.mvp.model.entity.User;
 import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
-import retrofit2.http.Query;
 
 import static me.jessyan.armscomponent.zhihu.mvp.model.api.Api.ZHIHU_DOMAIN_NAME;
 import static me.jessyan.retrofiturlmanager.RetrofitUrlManager.DOMAIN_NAME_HEADER;
@@ -39,12 +35,6 @@ import static me.jessyan.retrofiturlmanager.RetrofitUrlManager.DOMAIN_NAME_HEADE
  * ================================================
  */
 public interface ZhihuService {
-    String HEADER_API_VERSION = "Accept: application/vnd.github.v3+json";
-
-    @Headers({HEADER_API_VERSION})
-    @GET("/users")
-    Observable<List<User>> getUsers(@Query("since") int lastIdQueried, @Query("per_page") int perPage);
-
     /**
      * 最新日报
      */

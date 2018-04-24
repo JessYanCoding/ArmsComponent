@@ -15,22 +15,16 @@
  */
 package me.jessyan.armscomponent.zhihu.mvp.model;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.OnLifecycleEvent;
-
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.integration.IRepositoryManager;
 import com.jess.arms.mvp.BaseModel;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
-import me.jessyan.armscomponent.zhihu.mvp.contract.UserContract;
+import me.jessyan.armscomponent.zhihu.mvp.contract.ZhihuHomeContract;
 import me.jessyan.armscomponent.zhihu.mvp.model.api.service.ZhihuService;
-import me.jessyan.armscomponent.zhihu.mvp.model.entity.User;
-import timber.log.Timber;
+import me.jessyan.armscomponent.zhihu.mvp.model.entity.DailyListBean;
 
 /**
  * ================================================
@@ -43,26 +37,17 @@ import timber.log.Timber;
  * ================================================
  */
 @ActivityScope
-public class UserModel extends BaseModel implements UserContract.Model {
+public class ZhihuModel extends BaseModel implements ZhihuHomeContract.Model {
     public static final int USERS_PER_PAGE = 10;
 
     @Inject
-    public UserModel(IRepositoryManager repositoryManager) {
+    public ZhihuModel(IRepositoryManager repositoryManager) {
         super(repositoryManager);
     }
 
     @Override
-    public Observable<List<User>> getUsers(int lastIdQueried, boolean update) {
-        //使用rxcache缓存,上拉刷新则不读取缓存,加载更多读取缓存
-        return mRepositoryManager
-                .obtainRetrofitService(ZhihuService.class)
-                .getUsers(lastIdQueried, USERS_PER_PAGE);
-
+    public Observable<DailyListBean> getDailyList(){
+        return mRepositoryManager.obtainRetrofitService(ZhihuService.class)
+                .getDailyList();
     }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    void onPause() {
-        Timber.d("Release Resource");
-    }
-
 }

@@ -28,7 +28,7 @@ import butterknife.BindView;
 import io.reactivex.Observable;
 import me.jessyan.armscomponent.commonsdk.imgaEngine.config.CommonImageConfigImpl;
 import me.jessyan.armscomponent.zhihu.R2;
-import me.jessyan.armscomponent.zhihu.mvp.model.entity.User;
+import me.jessyan.armscomponent.zhihu.mvp.model.entity.DailyListBean;
 
 /**
  * ================================================
@@ -39,7 +39,7 @@ import me.jessyan.armscomponent.zhihu.mvp.model.entity.User;
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-public class UserItemHolder extends BaseHolder<User> {
+public class UserItemHolder extends BaseHolder<DailyListBean.StoriesBean> {
 
     @BindView(R2.id.iv_avatar)
     ImageView mAvatar;
@@ -56,15 +56,15 @@ public class UserItemHolder extends BaseHolder<User> {
     }
 
     @Override
-    public void setData(User data, int position) {
-        Observable.just(data.getLogin())
+    public void setData(DailyListBean.StoriesBean data, int position) {
+        Observable.just(data.getTitle())
                 .subscribe(s -> mName.setText(s));
 
         //itemView 的 Context 就是 Activity, Glide 会自动处理并和该 Activity 的生命周期绑定
         mImageLoader.loadImage(itemView.getContext(),
                 CommonImageConfigImpl
                         .builder()
-                        .url(data.getAvatarUrl())
+                        .url(data.getImages().get(0))
                         .imageView(mAvatar)
                         .build());
     }

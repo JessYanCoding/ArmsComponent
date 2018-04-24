@@ -28,8 +28,6 @@ import com.jess.arms.base.BaseActivity;
 import com.jess.arms.base.DefaultAdapter;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
-import com.paginate.Paginate;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import javax.inject.Inject;
 
@@ -37,10 +35,9 @@ import butterknife.BindView;
 import me.jessyan.armscomponent.commonsdk.core.RouterHub;
 import me.jessyan.armscomponent.zhihu.R;
 import me.jessyan.armscomponent.zhihu.R2;
-import me.jessyan.armscomponent.zhihu.di.component.DaggerUserComponent;
-import me.jessyan.armscomponent.zhihu.di.module.UserModule;
-import me.jessyan.armscomponent.zhihu.mvp.contract.UserContract;
-import me.jessyan.armscomponent.zhihu.mvp.presenter.UserPresenter;
+import me.jessyan.armscomponent.zhihu.di.component.DaggerZhihuHomeComponent;
+import me.jessyan.armscomponent.zhihu.mvp.contract.ZhihuHomeContract;
+import me.jessyan.armscomponent.zhihu.mvp.presenter.ZhihuHomePresenter;
 import timber.log.Timber;
 
 
@@ -55,28 +52,24 @@ import timber.log.Timber;
  * ================================================
  */
 @Route(path = RouterHub.ZHIHU_HOMEACTIVITY)
-public class ZhihuHomeActivity extends BaseActivity<UserPresenter> implements UserContract.View, SwipeRefreshLayout.OnRefreshListener {
+public class ZhihuHomeActivity extends BaseActivity<ZhihuHomePresenter> implements ZhihuHomeContract.View, SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R2.id.recyclerView)
     RecyclerView mRecyclerView;
     @BindView(R2.id.swipeRefreshLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
     @Inject
-    RxPermissions mRxPermissions;
-    @Inject
     RecyclerView.LayoutManager mLayoutManager;
     @Inject
     RecyclerView.Adapter mAdapter;
 
-    private Paginate mPaginate;
-    private boolean isLoadingMore;
 
     @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
-        DaggerUserComponent
+        DaggerZhihuHomeComponent
                 .builder()
                 .appComponent(appComponent)
-                .userModule(new UserModule(this))
+                .view(this)
                 .build()
                 .inject(this);
     }
@@ -90,13 +83,12 @@ public class ZhihuHomeActivity extends BaseActivity<UserPresenter> implements Us
     public void initData(@Nullable Bundle savedInstanceState) {
         initRecyclerView();
         mRecyclerView.setAdapter(mAdapter);
-        initPaginate();
     }
 
 
     @Override
     public void onRefresh() {
-        mPresenter.requestUsers(true);
+        mPresenter.requestDailyList();
     }
 
     /**
@@ -135,66 +127,14 @@ public class ZhihuHomeActivity extends BaseActivity<UserPresenter> implements Us
         finish();
     }
 
-    /**
-     * 开始加载更多
-     */
-    @Override
-    public void startLoadMore() {
-        isLoadingMore = true;
-    }
-
-    /**
-     * 结束加载更多
-     */
-    @Override
-    public void endLoadMore() {
-        isLoadingMore = false;
-    }
-
     @Override
     public Activity getActivity() {
         return this;
     }
 
     @Override
-    public RxPermissions getRxPermissions() {
-        return mRxPermissions;
-    }
-
-    /**
-     * 初始化Paginate,用于加载更多
-     */
-    private void initPaginate() {
-        if (mPaginate == null) {
-            Paginate.Callbacks callbacks = new Paginate.Callbacks() {
-                @Override
-                public void onLoadMore() {
-                    mPresenter.requestUsers(false);
-                }
-
-                @Override
-                public boolean isLoading() {
-                    return isLoadingMore;
-                }
-
-                @Override
-                public boolean hasLoadedAllItems() {
-                    return false;
-                }
-            };
-
-            mPaginate = Paginate.with(mRecyclerView, callbacks)
-                    .setLoadingTriggerThreshold(0)
-                    .build();
-            mPaginate.setHasMoreDataToLoad(false);
-        }
-    }
-
-    @Override
     protected void onDestroy() {
         DefaultAdapter.releaseAllHolder(mRecyclerView);//super.onDestroy()之后会unbind,所有view被置为null,所以必须在之前调用
         super.onDestroy();
-        this.mRxPermissions = null;
-        this.mPaginate = null;
     }
 }
