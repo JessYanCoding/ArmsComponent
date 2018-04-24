@@ -35,6 +35,7 @@ import me.jessyan.armscomponent.commonsdk.BuildConfig;
 import me.jessyan.armscomponent.commonsdk.http.Api;
 import me.jessyan.armscomponent.commonsdk.http.SSLSocketClient;
 import me.jessyan.armscomponent.commonsdk.imgaEngine.Strategy.CommonGlideImageLoaderStrategy;
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import okhttp3.OkHttpClient;
 import timber.log.Timber;
 
@@ -68,6 +69,8 @@ public class GlobalConfiguration implements ConfigModule {
                     public void configOkhttp(Context context, OkHttpClient.Builder builder) {
                         builder.sslSocketFactory(SSLSocketClient.getSSLSocketFactory(), SSLSocketClient.getTrustManager());
                         builder.hostnameVerifier(SSLSocketClient.getHostnameVerifier());
+                        //让 Retrofit 同时支持多个 BaseUrl 以及动态改变 BaseUrl. 详细使用请方法查看 https://github.com/JessYanCoding/RetrofitUrlManager
+                        RetrofitUrlManager.getInstance().with(builder);
                     }
                 })
                 .rxCacheConfiguration((context1, rxCacheBuilder) -> {//这里可以自己自定义配置RxCache的参数
@@ -92,7 +95,7 @@ public class GlobalConfiguration implements ConfigModule {
                     ButterKnife.setDebug(true);
                     ARouter.openLog();     // 打印日志
                     ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
-
+                    RetrofitUrlManager.getInstance().setDebug(true);
                 }
                 ARouter.init(application); // 尽可能早,推荐在Application中初始化
             }

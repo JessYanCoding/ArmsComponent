@@ -25,6 +25,6 @@ package me.jessyan.armscomponent.zhihu.mvp.model.api;
  * ================================================
  */
 public interface Api {
-    String APP_DOMAIN = "https://api.github.com";
-    String RequestSuccess = "0";
+    String ZHIHU_DOMAIN_NAME = "zhihu";
+    String ZHIHU_DOMAIN = "http://news-at.zhihu.com";
 }

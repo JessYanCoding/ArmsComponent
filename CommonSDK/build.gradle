@@ -42,4 +42,5 @@ dependencies {
         exclude module: 'support-v4'
         exclude module: 'support-annotations'
     }
+    api rootProject.ext.dependencies["retrofit-url-manager"]
 }

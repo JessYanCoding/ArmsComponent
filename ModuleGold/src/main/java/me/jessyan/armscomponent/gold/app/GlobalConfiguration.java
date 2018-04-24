@@ -28,6 +28,8 @@ import com.squareup.leakcanary.RefWatcher;
 
 import java.util.List;
 
+import me.jessyan.armscomponent.gold.BuildConfig;
+
 /**
  * ================================================
  * App 的全局配置信息在此配置, 需要将此实现类声明到 AndroidManifest 中
@@ -62,16 +64,19 @@ public final class GlobalConfiguration implements ConfigModule {
 
     @Override
     public void injectFragmentLifecycle(Context context, List<FragmentManager.FragmentLifecycleCallbacks> lifecycles) {
-        lifecycles.add(new FragmentManager.FragmentLifecycleCallbacks() {
-            @Override
-            public void onFragmentDestroyed(FragmentManager fm, Fragment f) {
-                ((RefWatcher) ArmsUtils
-                        .obtainAppComponentFromContext(f.getActivity())
-                        .extras()
-                        .get(RefWatcher.class.getName()))
-                        .watch(f);
-            }
-        });
+        //当所有模块集成到宿主 App 时, 在 App 中已经执行了以下代码
+        if (BuildConfig.IS_BUILD_MODULE) {
+            lifecycles.add(new FragmentManager.FragmentLifecycleCallbacks() {
+                @Override
+                public void onFragmentDestroyed(FragmentManager fm, Fragment f) {
+                    ((RefWatcher) ArmsUtils
+                            .obtainAppComponentFromContext(f.getActivity())
+                            .extras()
+                            .get(RefWatcher.class.getName()))
+                            .watch(f);
+                }
+            });
+        }
     }
 
 }

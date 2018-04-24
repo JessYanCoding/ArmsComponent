@@ -28,7 +28,7 @@ import javax.inject.Inject;
 
 import io.reactivex.Observable;
 import me.jessyan.armscomponent.zhihu.mvp.contract.UserContract;
-import me.jessyan.armscomponent.zhihu.mvp.model.api.service.UserService;
+import me.jessyan.armscomponent.zhihu.mvp.model.api.service.ZhihuService;
 import me.jessyan.armscomponent.zhihu.mvp.model.entity.User;
 import timber.log.Timber;
 
@@ -55,7 +55,7 @@ public class UserModel extends BaseModel implements UserContract.Model {
     public Observable<List<User>> getUsers(int lastIdQueried, boolean update) {
         //使用rxcache缓存,上拉刷新则不读取缓存,加载更多读取缓存
         return mRepositoryManager
-                .obtainRetrofitService(UserService.class)
+                .obtainRetrofitService(ZhihuService.class)
                 .getUsers(lastIdQueried, USERS_PER_PAGE);
 
     }
