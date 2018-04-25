@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 JessYan
+ * Copyright 2018 JessYan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,25 +16,19 @@
 package me.jessyan.armscomponent.zhihu.mvp.presenter;
 
 import android.app.Application;
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.OnLifecycleEvent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.SupportActivity;
-import android.support.v7.widget.RecyclerView;
 
 import com.jess.arms.di.scope.ActivityScope;
+import com.jess.arms.http.imageloader.ImageLoader;
 import com.jess.arms.integration.AppManager;
 import com.jess.arms.mvp.BasePresenter;
 import com.jess.arms.utils.RxLifecycleUtils;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import me.jessyan.armscomponent.zhihu.mvp.contract.ZhihuHomeContract;
-import me.jessyan.armscomponent.zhihu.mvp.model.entity.DailyListBean;
+import me.jessyan.armscomponent.zhihu.mvp.contract.DetailContract;
+import me.jessyan.armscomponent.zhihu.mvp.model.entity.ZhihuDetailBean;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
 import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
@@ -44,41 +38,29 @@ import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
  * 展示 Presenter 的用法
  *
  * @see <a href="https://github.com/JessYanCoding/MVPArms/wiki#2.4.4">Presenter wiki 官方文档</a>
- * Created by JessYan on 09/04/2016 10:59
+ * Created by JessYan on 25/04/2016 10:59
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
 @ActivityScope
-public class ZhihuHomePresenter extends BasePresenter<ZhihuHomeContract.Model, ZhihuHomeContract.View> {
+public class DetailPresenter extends BasePresenter<DetailContract.Model, DetailContract.View> {
     @Inject
     RxErrorHandler mErrorHandler;
     @Inject
-    AppManager mAppManager;
-    @Inject
     Application mApplication;
     @Inject
-    List<DailyListBean.StoriesBean> mUsers;
+    ImageLoader mImageLoader;
     @Inject
-    RecyclerView.Adapter mAdapter;
-
+    AppManager mAppManager;
 
     @Inject
-    public ZhihuHomePresenter(ZhihuHomeContract.Model model, ZhihuHomeContract.View rootView) {
+    public DetailPresenter(DetailContract.Model model, DetailContract.View rootView) {
         super(model, rootView);
     }
 
-    /**
-     * 使用 2017 Google IO 发布的 Architecture Components 中的 Lifecycles 的新特性 (此特性已被加入 Support library)
-     * 使 {@code Presenter} 可以与 {@link SupportActivity} 和 {@link Fragment} 的部分生命周期绑定
-     */
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    void onCreate() {
-        requestDailyList();//打开 App 时自动加载列表
-    }
-
-    public void requestDailyList() {
-        mModel.getDailyList()
+    public void requestDetailInfo(int id){
+        mModel.getDetailInfo(id)
                 .subscribeOn(Schedulers.io())
                 .retryWhen(new RetryWithDelay(3, 2))//遇到错误时重试,第一个参数为重试几次,第二个参数为重试的间隔
                 .doOnSubscribe(disposable -> {
@@ -89,12 +71,10 @@ public class ZhihuHomePresenter extends BasePresenter<ZhihuHomeContract.Model, Z
                     mRootView.hideLoading();//隐藏下拉刷新的进度条
                 })
                 .compose(RxLifecycleUtils.bindToLifecycle(mRootView))//使用 Rxlifecycle,使 Disposable 和 Activity 一起销毁
-                .subscribe(new ErrorHandleSubscriber<DailyListBean>(mErrorHandler) {
+                .subscribe(new ErrorHandleSubscriber<ZhihuDetailBean>(mErrorHandler) {
                     @Override
-                    public void onNext(DailyListBean dailyListBean) {
-                        mUsers.clear();
-                        mUsers.addAll(dailyListBean.getStories());
-                        mAdapter.notifyDataSetChanged();
+                    public void onNext(ZhihuDetailBean zhihuDetailBean) {
+                        mRootView.shonContent(zhihuDetailBean);
                     }
                 });
     }
@@ -102,10 +82,9 @@ public class ZhihuHomePresenter extends BasePresenter<ZhihuHomeContract.Model, Z
     @Override
     public void onDestroy() {
         super.onDestroy();
-        this.mAdapter = null;
-        this.mUsers = null;
         this.mErrorHandler = null;
         this.mAppManager = null;
+        this.mImageLoader = null;
         this.mApplication = null;
     }
 }

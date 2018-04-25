@@ -39,7 +39,7 @@ import me.jessyan.armscomponent.zhihu.mvp.model.entity.DailyListBean;
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-public class UserItemHolder extends BaseHolder<DailyListBean.StoriesBean> {
+public class ZhihuHomeItemHolder extends BaseHolder<DailyListBean.StoriesBean> {
 
     @BindView(R2.id.iv_avatar)
     ImageView mAvatar;
@@ -48,7 +48,7 @@ public class UserItemHolder extends BaseHolder<DailyListBean.StoriesBean> {
     private AppComponent mAppComponent;
     private ImageLoader mImageLoader;//用于加载图片的管理类,默认使用 Glide,使用策略模式,可替换框架
 
-    public UserItemHolder(View itemView) {
+    public ZhihuHomeItemHolder(View itemView) {
         super(itemView);
         //可以在任何可以拿到 Context 的地方,拿到 AppComponent,从而得到用 Dagger 管理的单例对象
         mAppComponent = ArmsUtils.obtainAppComponentFromContext(itemView.getContext());

@@ -17,7 +17,10 @@ package me.jessyan.armscomponent.zhihu.di.module;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.jess.arms.base.DefaultAdapter;
 import com.jess.arms.di.scope.ActivityScope;
 
 import java.util.ArrayList;
@@ -26,10 +29,12 @@ import java.util.List;
 import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
+import me.jessyan.armscomponent.commonsdk.core.RouterHub;
+import me.jessyan.armscomponent.zhihu.app.ZhihuConstants;
 import me.jessyan.armscomponent.zhihu.mvp.contract.ZhihuHomeContract;
 import me.jessyan.armscomponent.zhihu.mvp.model.ZhihuModel;
 import me.jessyan.armscomponent.zhihu.mvp.model.entity.DailyListBean;
-import me.jessyan.armscomponent.zhihu.mvp.ui.adapter.UserAdapter;
+import me.jessyan.armscomponent.zhihu.mvp.ui.adapter.ZhihuHomeAdapter;
 
 /**
  * ================================================
@@ -60,7 +65,18 @@ public abstract class ZhihuHomeModule {
 
     @ActivityScope
     @Provides
-    static RecyclerView.Adapter provideUserAdapter(List<DailyListBean.StoriesBean> list){
-        return new UserAdapter(list);
+    static RecyclerView.Adapter provideUserAdapter(ZhihuHomeContract.View zhihuHomeView, List<DailyListBean.StoriesBean> list){
+        ZhihuHomeAdapter adapter = new ZhihuHomeAdapter(list);
+        adapter.setOnItemClickListener(new DefaultAdapter.OnRecyclerViewItemClickListener<DailyListBean.StoriesBean>() {
+            @Override
+            public void onItemClick(View view, int viewType, DailyListBean.StoriesBean data, int position) {
+                ARouter.getInstance()
+                        .build(RouterHub.ZHIHU_DETAILACTIVITY)
+                        .withInt(ZhihuConstants.DETAIL_ID, data.getId())
+                        .withString(ZhihuConstants.DETAIL_TITLE, data.getTitle())
+                        .navigation(zhihuHomeView.getActivity());
+            }
+        });
+        return adapter;
     }
 }

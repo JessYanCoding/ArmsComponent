@@ -24,7 +24,7 @@ import java.util.List;
 
 import me.jessyan.armscomponent.zhihu.R;
 import me.jessyan.armscomponent.zhihu.mvp.model.entity.DailyListBean;
-import me.jessyan.armscomponent.zhihu.mvp.ui.holder.UserItemHolder;
+import me.jessyan.armscomponent.zhihu.mvp.ui.holder.ZhihuHomeItemHolder;
 
 /**
  * ================================================
@@ -35,14 +35,14 @@ import me.jessyan.armscomponent.zhihu.mvp.ui.holder.UserItemHolder;
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-public class UserAdapter extends DefaultAdapter<DailyListBean.StoriesBean> {
-    public UserAdapter(List<DailyListBean.StoriesBean> infos) {
+public class ZhihuHomeAdapter extends DefaultAdapter<DailyListBean.StoriesBean>{
+    public ZhihuHomeAdapter(List<DailyListBean.StoriesBean> infos) {
         super(infos);
     }
 
     @Override
     public BaseHolder<DailyListBean.StoriesBean> getHolder(View v, int viewType) {
-        return new UserItemHolder(v);
+        return new ZhihuHomeItemHolder(v);
     }
 
     @Override

@@ -6,7 +6,11 @@
         android:theme="@style/public_AppTheme">
         <activity
             android:name=".mvp.ui.activity.ZhihuHomeActivity"
+            android:configChanges="orientation|screenSize"
             android:label="@string/public_name_zhihu"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.activity.DetailActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"/>
         <!-- 每个业务组件需要声明两个 ConfigModule, CommonSDK 的 ConfigModule 和 业务组件自己的 ConfigModule

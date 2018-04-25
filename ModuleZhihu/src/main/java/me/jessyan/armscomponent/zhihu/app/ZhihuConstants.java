@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 JessYan
+ * Copyright 2018 JessYan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,22 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.zhihu.app.service;
-
-import com.jess.arms.base.BaseService;
+package me.jessyan.armscomponent.zhihu.app;
 
 /**
  * ================================================
- * 展示 {@link BaseService} 的用法
- * <p>
- * Created by JessYan on 09/07/2016 16:59
+ * Created by JessYan on 25/04/2018 16:48
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-public class DemoService extends BaseService {
-    @Override
-    public void init() {
-
-    }
+public interface ZhihuConstants {
+    String DETAIL_ID = "detail_id";
+    String DETAIL_TITLE = "detail_title";
+    String ENCODING = "UTF-8";
 }

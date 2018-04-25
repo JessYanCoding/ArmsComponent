@@ -15,8 +15,16 @@
  */
 package me.jessyan.armscomponent.commonsdk.utils;
 
+import com.jess.arms.mvp.IView;
+import com.jess.arms.utils.RxLifecycleUtils;
+
+import io.reactivex.Observable;
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
 
@@ -28,8 +36,12 @@ import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
  * ================================================
  */
 public class RxUtil {
+    private RxUtil(){
+        throw new IllegalStateException("you can't instantiate me!");
+    }
+
     /**
-     * 执行io线程  取消注册在io   回掉主线程
+     * 执行io线程, 取消注册在io, 回掉主线程
      *
      * @param <T>
      * @return
@@ -41,13 +53,13 @@ public class RxUtil {
     }
 
     /**
+     * 重试
      * @param <T>
      * @return 重试次数
      */
     public static <T> ObservableTransformer<T, T> retry2() {
         return upstream -> upstream.retryWhen(new RetryWithDelay(2, 2));
     }
-
 
     /**
      * 都在io线程
@@ -59,5 +71,28 @@ public class RxUtil {
         return upstream -> upstream
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io());
+    }
+
+    public static <T> ObservableTransformer<T, T> applySchedulers(final IView view) {
+        return new ObservableTransformer<T, T>() {
+            @Override
+            public Observable<T> apply(Observable<T> observable) {
+                return observable.subscribeOn(Schedulers.io())
+                        .doOnSubscribe(new Consumer<Disposable>() {
+                            @Override
+                            public void accept(@NonNull Disposable disposable) throws Exception {
+                                view.showLoading();//显示进度条
+                            }
+                        })
+                        .subscribeOn(AndroidSchedulers.mainThread())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .doFinally(new Action() {
+                            @Override
+                            public void run() {
+                                view.hideLoading();//隐藏进度条
+                            }
+                        }).compose(RxLifecycleUtils.bindToLifecycle(view));
+            }
+        };
     }
 }
