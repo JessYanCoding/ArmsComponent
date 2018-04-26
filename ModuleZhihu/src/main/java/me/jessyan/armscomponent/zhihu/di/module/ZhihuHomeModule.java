@@ -59,13 +59,13 @@ public abstract class ZhihuHomeModule {
 
     @ActivityScope
     @Provides
-    static List<DailyListBean.StoriesBean> provideUserList() {
+    static List<DailyListBean.StoriesBean> provideList() {
         return new ArrayList<>();
     }
 
     @ActivityScope
     @Provides
-    static RecyclerView.Adapter provideUserAdapter(ZhihuHomeContract.View zhihuHomeView, List<DailyListBean.StoriesBean> list){
+    static RecyclerView.Adapter provideZhihuHomeAdapter(ZhihuHomeContract.View zhihuHomeView, List<DailyListBean.StoriesBean> list){
         ZhihuHomeAdapter adapter = new ZhihuHomeAdapter(list);
         adapter.setOnItemClickListener(new DefaultAdapter.OnRecyclerViewItemClickListener<DailyListBean.StoriesBean>() {
             @Override

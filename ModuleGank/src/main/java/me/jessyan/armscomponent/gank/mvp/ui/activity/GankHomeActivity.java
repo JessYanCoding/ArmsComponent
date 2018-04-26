@@ -29,7 +29,6 @@ import com.jess.arms.base.DefaultAdapter;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
 import com.paginate.Paginate;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import javax.inject.Inject;
 
@@ -37,10 +36,9 @@ import butterknife.BindView;
 import me.jessyan.armscomponent.commonsdk.core.RouterHub;
 import me.jessyan.armscomponent.gank.R;
 import me.jessyan.armscomponent.gank.R2;
-import me.jessyan.armscomponent.gank.di.component.DaggerUserComponent;
-import me.jessyan.armscomponent.gank.di.module.UserModule;
-import me.jessyan.armscomponent.gank.mvp.contract.UserContract;
-import me.jessyan.armscomponent.gank.mvp.presenter.UserPresenter;
+import me.jessyan.armscomponent.gank.di.component.DaggerGankHomeComponent;
+import me.jessyan.armscomponent.gank.mvp.contract.GankHomeContract;
+import me.jessyan.armscomponent.gank.mvp.presenter.GankHomePresenter;
 import timber.log.Timber;
 
 
@@ -55,14 +53,11 @@ import timber.log.Timber;
  * ================================================
  */
 @Route(path = RouterHub.GANK_HOMEACTIVITY)
-public class GankHomeActivity extends BaseActivity<UserPresenter> implements UserContract.View, SwipeRefreshLayout.OnRefreshListener {
-
+public class GankHomeActivity extends BaseActivity<GankHomePresenter> implements GankHomeContract.View, SwipeRefreshLayout.OnRefreshListener {
     @BindView(R2.id.recyclerView)
     RecyclerView mRecyclerView;
     @BindView(R2.id.swipeRefreshLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
-    @Inject
-    RxPermissions mRxPermissions;
     @Inject
     RecyclerView.LayoutManager mLayoutManager;
     @Inject
@@ -73,10 +68,10 @@ public class GankHomeActivity extends BaseActivity<UserPresenter> implements Use
 
     @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
-        DaggerUserComponent
+        DaggerGankHomeComponent
                 .builder()
                 .appComponent(appComponent)
-                .userModule(new UserModule(this))
+                .view(this)
                 .build()
                 .inject(this);
     }
@@ -96,7 +91,7 @@ public class GankHomeActivity extends BaseActivity<UserPresenter> implements Use
 
     @Override
     public void onRefresh() {
-        mPresenter.requestUsers(true);
+        mPresenter.requestGirls(true);
     }
 
     /**
@@ -156,11 +151,6 @@ public class GankHomeActivity extends BaseActivity<UserPresenter> implements Use
         return this;
     }
 
-    @Override
-    public RxPermissions getRxPermissions() {
-        return mRxPermissions;
-    }
-
     /**
      * 初始化Paginate,用于加载更多
      */
@@ -169,7 +159,7 @@ public class GankHomeActivity extends BaseActivity<UserPresenter> implements Use
             Paginate.Callbacks callbacks = new Paginate.Callbacks() {
                 @Override
                 public void onLoadMore() {
-                    mPresenter.requestUsers(false);
+                    mPresenter.requestGirls(false);
                 }
 
                 @Override
@@ -194,7 +184,6 @@ public class GankHomeActivity extends BaseActivity<UserPresenter> implements Use
     protected void onDestroy() {
         DefaultAdapter.releaseAllHolder(mRecyclerView);//super.onDestroy()之后会unbind,所有view被置为null,所以必须在之前调用
         super.onDestroy();
-        this.mRxPermissions = null;
         this.mPaginate = null;
     }
 }

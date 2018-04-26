@@ -24,6 +24,10 @@ import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
 import me.jessyan.armscomponent.gank.BuildConfig;
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
+
+import static me.jessyan.armscomponent.gank.mvp.model.api.Api.GANK_DOMAIN;
+import static me.jessyan.armscomponent.gank.mvp.model.api.Api.GANK_DOMAIN_NAME;
 
 /**
  * ================================================
@@ -48,6 +52,8 @@ public class AppLifecyclesImpl implements AppLifecycles {
             // You should not init your app in this process.
             return;
         }
+        //使用 RetrofitUrlManager 切换 BaseUrl
+        RetrofitUrlManager.getInstance().putDomain(GANK_DOMAIN_NAME, GANK_DOMAIN);
         //当所有模块集成到宿主 App 时, 在 App 中已经执行了以下代码
         if (BuildConfig.IS_BUILD_MODULE) {
             //leakCanary内存泄露检查

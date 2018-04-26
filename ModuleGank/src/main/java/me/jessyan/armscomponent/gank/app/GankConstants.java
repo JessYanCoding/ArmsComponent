@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 JessYan
+ * Copyright 2018 JessYan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,18 +15,13 @@
  */
 package me.jessyan.armscomponent.gank.app;
 
-import org.simple.eventbus.EventBus;
-
 /**
  * ================================================
- * 放置 {@link EventBus} 的 Tag ,便于检索
- *
- * @see <a href="https://github.com/JessYanCoding/MVPArms/wiki#3.5">EventBusTags wiki 官方文档</a>
- * Created by JessYan on 8/30/2016 16:39
+ * Created by JessYan on 25/04/2018 16:48
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-public interface EventBusTags {
-
+public interface GankConstants {
+    int NUMBER_OF_PAGE = 10;
 }

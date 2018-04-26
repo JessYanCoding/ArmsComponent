@@ -13,31 +13,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.gold.mvp.model.api.cache;
+package me.jessyan.armscomponent.gank.mvp.ui.adapter;
+
+import android.view.View;
+
+import com.jess.arms.base.BaseHolder;
+import com.jess.arms.base.DefaultAdapter;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import io.reactivex.Observable;
-import io.rx_cache2.DynamicKey;
-import io.rx_cache2.EvictProvider;
-import io.rx_cache2.LifeCache;
-import io.rx_cache2.Reply;
-import io.rx_cache2.internal.RxCache;
-import me.jessyan.armscomponent.gold.mvp.model.entity.User;
-import me.jessyan.armscomponent.gold.mvp.model.entity.User;
+import me.jessyan.armscomponent.gank.R;
+import me.jessyan.armscomponent.gank.mvp.model.entity.GankItemBean;
+import me.jessyan.armscomponent.gank.mvp.ui.holder.GankHomeHolder;
 
 /**
  * ================================================
- * 展示 {@link RxCache#using(Class)} 中需要传入的 Providers 的使用方式
+ * 展示 {@link DefaultAdapter} 的用法
  * <p>
- * Created by JessYan on 08/30/2016 13:53
+ * Created by JessYan on 09/04/2016 12:57
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-public interface CommonCache {
+public class GankHomeAdapter extends DefaultAdapter<GankItemBean> {
+    public GankHomeAdapter(List<GankItemBean> infos) {
+        super(infos);
+    }
 
-    @LifeCache(duration = 2, timeUnit = TimeUnit.MINUTES)
-    Observable<Reply<List<User>>> getUsers(Observable<List<User>> users, DynamicKey idLastUserQueried, EvictProvider evictProvider);
+    @Override
+    public BaseHolder<GankItemBean> getHolder(View v, int viewType) {
+        return new GankHomeHolder(v);
+    }
+
+    @Override
+    public int getLayoutId(int viewType) {
+        return R.layout.gank_recycle_list;
+    }
 }

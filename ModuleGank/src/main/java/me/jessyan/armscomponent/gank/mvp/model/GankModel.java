@@ -15,9 +15,6 @@
  */
 package me.jessyan.armscomponent.gank.mvp.model;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.OnLifecycleEvent;
-
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.integration.IRepositoryManager;
 import com.jess.arms.mvp.BaseModel;
@@ -27,10 +24,10 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
-import me.jessyan.armscomponent.gank.mvp.contract.UserContract;
-import me.jessyan.armscomponent.gank.mvp.model.api.service.UserService;
-import me.jessyan.armscomponent.gank.mvp.model.entity.User;
-import timber.log.Timber;
+import me.jessyan.armscomponent.gank.mvp.contract.GankHomeContract;
+import me.jessyan.armscomponent.gank.mvp.model.api.service.GankService;
+import me.jessyan.armscomponent.gank.mvp.model.entity.GankBaseResponse;
+import me.jessyan.armscomponent.gank.mvp.model.entity.GankItemBean;
 
 /**
  * ================================================
@@ -43,26 +40,17 @@ import timber.log.Timber;
  * ================================================
  */
 @ActivityScope
-public class UserModel extends BaseModel implements UserContract.Model {
-    public static final int USERS_PER_PAGE = 10;
+public class GankModel extends BaseModel implements GankHomeContract.Model {
 
     @Inject
-    public UserModel(IRepositoryManager repositoryManager) {
+    public GankModel(IRepositoryManager repositoryManager) {
         super(repositoryManager);
     }
 
     @Override
-    public Observable<List<User>> getUsers(int lastIdQueried, boolean update) {
-        //使用rxcache缓存,上拉刷新则不读取缓存,加载更多读取缓存
+    public Observable<GankBaseResponse<List<GankItemBean>>> getGirlList(int num, int page) {
         return mRepositoryManager
-                .obtainRetrofitService(UserService.class)
-                .getUsers(lastIdQueried, USERS_PER_PAGE);
-
+                .obtainRetrofitService(GankService.class)
+                .getGirlList(num, page);
     }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    void onPause() {
-        Timber.d("Release Resource");
-    }
-
 }

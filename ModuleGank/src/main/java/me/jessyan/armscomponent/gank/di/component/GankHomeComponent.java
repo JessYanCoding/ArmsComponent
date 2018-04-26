@@ -18,8 +18,10 @@ package me.jessyan.armscomponent.gank.di.component;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.di.scope.ActivityScope;
 
+import dagger.BindsInstance;
 import dagger.Component;
-import me.jessyan.armscomponent.gank.di.module.UserModule;
+import me.jessyan.armscomponent.gank.di.module.GankHomeModule;
+import me.jessyan.armscomponent.gank.mvp.contract.GankHomeContract;
 import me.jessyan.armscomponent.gank.mvp.ui.activity.GankHomeActivity;
 
 /**
@@ -33,7 +35,14 @@ import me.jessyan.armscomponent.gank.mvp.ui.activity.GankHomeActivity;
  * ================================================
  */
 @ActivityScope
-@Component(modules = UserModule.class, dependencies = AppComponent.class)
-public interface UserComponent {
+@Component(modules = GankHomeModule.class, dependencies = AppComponent.class)
+public interface GankHomeComponent {
     void inject(GankHomeActivity activity);
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        GankHomeComponent.Builder view(GankHomeContract.View view);
+        GankHomeComponent.Builder appComponent(AppComponent appComponent);
+        GankHomeComponent build();
+    }
 }

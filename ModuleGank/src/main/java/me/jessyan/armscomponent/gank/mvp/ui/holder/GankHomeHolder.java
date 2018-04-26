@@ -17,7 +17,6 @@ package me.jessyan.armscomponent.gank.mvp.ui.holder;
 
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.jess.arms.base.BaseHolder;
 import com.jess.arms.di.component.AppComponent;
@@ -25,11 +24,9 @@ import com.jess.arms.http.imageloader.ImageLoader;
 import com.jess.arms.utils.ArmsUtils;
 
 import butterknife.BindView;
-import io.reactivex.Observable;
 import me.jessyan.armscomponent.commonsdk.imgaEngine.config.CommonImageConfigImpl;
-import me.jessyan.armscomponent.gank.mvp.model.entity.User;
 import me.jessyan.armscomponent.gank.R2;
-import me.jessyan.armscomponent.gank.mvp.model.entity.User;
+import me.jessyan.armscomponent.gank.mvp.model.entity.GankItemBean;
 
 /**
  * ================================================
@@ -40,16 +37,14 @@ import me.jessyan.armscomponent.gank.mvp.model.entity.User;
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-public class UserItemHolder extends BaseHolder<User> {
+public class GankHomeHolder extends BaseHolder<GankItemBean> {
 
     @BindView(R2.id.iv_avatar)
     ImageView mAvatar;
-    @BindView(R2.id.tv_name)
-    TextView mName;
     private AppComponent mAppComponent;
     private ImageLoader mImageLoader;//用于加载图片的管理类,默认使用 Glide,使用策略模式,可替换框架
 
-    public UserItemHolder(View itemView) {
+    public GankHomeHolder(View itemView) {
         super(itemView);
         //可以在任何可以拿到 Context 的地方,拿到 AppComponent,从而得到用 Dagger 管理的单例对象
         mAppComponent = ArmsUtils.obtainAppComponentFromContext(itemView.getContext());
@@ -57,19 +52,15 @@ public class UserItemHolder extends BaseHolder<User> {
     }
 
     @Override
-    public void setData(User data, int position) {
-        Observable.just(data.getLogin())
-                .subscribe(s -> mName.setText(s));
-
+    public void setData(GankItemBean data, int position) {
         //itemView 的 Context 就是 Activity, Glide 会自动处理并和该 Activity 的生命周期绑定
         mImageLoader.loadImage(itemView.getContext(),
                 CommonImageConfigImpl
                         .builder()
-                        .url(data.getAvatarUrl())
+                        .url(data.getUrl())
                         .imageView(mAvatar)
                         .build());
     }
-
 
     @Override
     protected void onRelease() {

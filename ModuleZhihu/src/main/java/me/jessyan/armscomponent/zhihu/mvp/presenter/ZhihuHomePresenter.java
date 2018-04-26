@@ -58,7 +58,7 @@ public class ZhihuHomePresenter extends BasePresenter<ZhihuHomeContract.Model, Z
     @Inject
     Application mApplication;
     @Inject
-    List<DailyListBean.StoriesBean> mUsers;
+    List<DailyListBean.StoriesBean> mDatas;
     @Inject
     RecyclerView.Adapter mAdapter;
 
@@ -92,8 +92,8 @@ public class ZhihuHomePresenter extends BasePresenter<ZhihuHomeContract.Model, Z
                 .subscribe(new ErrorHandleSubscriber<DailyListBean>(mErrorHandler) {
                     @Override
                     public void onNext(DailyListBean dailyListBean) {
-                        mUsers.clear();
-                        mUsers.addAll(dailyListBean.getStories());
+                        mDatas.clear();
+                        mDatas.addAll(dailyListBean.getStories());
                         mAdapter.notifyDataSetChanged();
                     }
                 });
@@ -103,7 +103,7 @@ public class ZhihuHomePresenter extends BasePresenter<ZhihuHomeContract.Model, Z
     public void onDestroy() {
         super.onDestroy();
         this.mAdapter = null;
-        this.mUsers = null;
+        this.mDatas = null;
         this.mErrorHandler = null;
         this.mAppManager = null;
         this.mApplication = null;
