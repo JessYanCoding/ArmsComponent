@@ -68,6 +68,7 @@
     <dimen name="public_height_494px">494px</dimen>
     <dimen name="public_height_590px">590px</dimen>
     <dimen name="public_height_510px">510px</dimen>
+    <dimen name="public_height_550px">550px</dimen>
     <dimen name="public_height_692px">692px</dimen>
     <dimen name="public_height_740px">740px</dimen>
     <dimen name="public_height_762px">762px</dimen>
@@ -117,6 +118,7 @@
     <dimen name="public_pad_left_8px">8px</dimen>
     <dimen name="public_pad_left_10px">10px</dimen>
     <dimen name="public_pad_left_12px">12px</dimen>
+    <dimen name="public_pad_left_15px">15px</dimen>
     <dimen name="public_pad_left_20px">20px</dimen>
     <dimen name="public_pad_left_26px">26px</dimen>
     <dimen name="public_pad_left_28px">28px</dimen>
@@ -128,6 +130,7 @@
     <dimen name="public_pad_right_28px">28px</dimen>
 
     //paddingtop
+    <dimen name="public_pad_top_15px">15px</dimen>
     <dimen name="public_pad_top_20px">20px</dimen>
     <dimen name="public_pad_top_26px">26px</dimen>
     <dimen name="public_pad_top_44px">44px</dimen>
@@ -200,6 +203,7 @@
     //marginBottom
     <dimen name="public_mar_bottom_8px">8px</dimen>
     <dimen name="public_mar_bottom_10px">10px</dimen>
+    <dimen name="public_mar_bottom_15px">15px</dimen>
     <dimen name="public_mar_bottom_16px">16px</dimen>
     <dimen name="public_mar_bottom_20px">20px</dimen>
     <dimen name="public_mar_bottom_24px">24px</dimen>
