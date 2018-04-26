@@ -22,9 +22,9 @@ import com.jess.arms.base.DefaultAdapter;
 
 import java.util.List;
 
-import me.jessyan.armscomponent.gold.mvp.model.entity.User;
-import me.jessyan.armscomponent.gold.mvp.ui.holder.UserItemHolder;
 import me.jessyan.armscomponent.gold.R;
+import me.jessyan.armscomponent.gold.mvp.model.entity.GoldListBean;
+import me.jessyan.armscomponent.gold.mvp.ui.holder.GoldHomeItemHolder;
 
 /**
  * ================================================
@@ -35,14 +35,14 @@ import me.jessyan.armscomponent.gold.R;
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-public class UserAdapter extends DefaultAdapter<User> {
-    public UserAdapter(List<User> infos) {
+public class GoldHomeAdapter extends DefaultAdapter<GoldListBean> {
+    public GoldHomeAdapter(List<GoldListBean> infos) {
         super(infos);
     }
 
     @Override
-    public BaseHolder<User> getHolder(View v, int viewType) {
-        return new UserItemHolder(v);
+    public BaseHolder<GoldListBean> getHolder(View v, int viewType) {
+        return new GoldHomeItemHolder(v);
     }
 
     @Override

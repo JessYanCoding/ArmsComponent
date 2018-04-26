@@ -76,7 +76,7 @@ public class ZhihuHomeActivity extends BaseActivity<ZhihuHomePresenter> implemen
 
     @Override
     public int initView(@Nullable Bundle savedInstanceState) {
-        return R.layout.zhihu_activity_user;
+        return R.layout.zhihu_activity_home;
     }
 
     @Override

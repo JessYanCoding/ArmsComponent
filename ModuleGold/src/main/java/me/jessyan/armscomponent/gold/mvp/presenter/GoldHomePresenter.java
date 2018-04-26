@@ -25,7 +25,6 @@ import android.support.v7.widget.RecyclerView;
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.integration.AppManager;
 import com.jess.arms.mvp.BasePresenter;
-import com.jess.arms.utils.PermissionUtil;
 import com.jess.arms.utils.RxLifecycleUtils;
 
 import java.util.List;
@@ -34,9 +33,10 @@ import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import me.jessyan.armscomponent.gold.mvp.contract.UserContract;
-import me.jessyan.armscomponent.gold.mvp.contract.UserContract;
-import me.jessyan.armscomponent.gold.mvp.model.entity.User;
+import me.jessyan.armscomponent.gold.app.GoldConstants;
+import me.jessyan.armscomponent.gold.mvp.contract.GoldHomeContract;
+import me.jessyan.armscomponent.gold.mvp.model.entity.GoldBaseResponse;
+import me.jessyan.armscomponent.gold.mvp.model.entity.GoldListBean;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
 import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
@@ -52,7 +52,7 @@ import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
  * ================================================
  */
 @ActivityScope
-public class UserPresenter extends BasePresenter<UserContract.Model, UserContract.View> {
+public class GoldHomePresenter extends BasePresenter<GoldHomeContract.Model, GoldHomeContract.View> {
     @Inject
     RxErrorHandler mErrorHandler;
     @Inject
@@ -60,16 +60,15 @@ public class UserPresenter extends BasePresenter<UserContract.Model, UserContrac
     @Inject
     Application mApplication;
     @Inject
-    List<User> mUsers;
+    List<GoldListBean> mDatas;
     @Inject
     RecyclerView.Adapter mAdapter;
-    private int lastUserId = 1;
-    private boolean isFirst = true;
+    private int lastPage = 0;
     private int preEndIndex;
 
 
     @Inject
-    public UserPresenter(UserContract.Model model, UserContract.View rootView) {
+    public GoldHomePresenter(GoldHomeContract.Model model, GoldHomeContract.View rootView) {
         super(model, rootView);
     }
 
@@ -79,41 +78,13 @@ public class UserPresenter extends BasePresenter<UserContract.Model, UserContrac
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     void onCreate() {
-        requestUsers(true);//打开 App 时自动加载列表
+        requestDatas(true);//打开 App 时自动加载列表
     }
 
-    public void requestUsers(final boolean pullToRefresh) {
-        //请求外部存储权限用于适配android6.0的权限管理机制
-        PermissionUtil.externalStorage(new PermissionUtil.RequestPermission() {
-            @Override
-            public void onRequestPermissionSuccess() {
-                //request permission success, do something.
-            }
+    public void requestDatas(final boolean pullToRefresh) {
+        if (pullToRefresh) lastPage = 0;//下拉刷新默认只请求第一页
 
-            @Override
-            public void onRequestPermissionFailure(List<String> permissions) {
-                mRootView.showMessage("Request permissions failure");
-            }
-
-            @Override
-            public void onRequestPermissionFailureWithAskNeverAgain(List<String> permissions) {
-                mRootView.showMessage("Need to go to the settings");
-            }
-        }, mRootView.getRxPermissions(), mErrorHandler);
-
-
-        if (pullToRefresh) lastUserId = 1;//下拉刷新默认只请求第一页
-
-        //关于RxCache缓存库的使用请参考 http://www.jianshu.com/p/b58ef6b0624b
-
-        boolean isEvictCache = pullToRefresh;//是否驱逐缓存,为ture即不使用缓存,每次下拉刷新即需要最新数据,则不使用缓存
-
-        if (pullToRefresh && isFirst) {//默认在第一次下拉刷新时使用缓存
-            isFirst = false;
-            isEvictCache = false;
-        }
-
-        mModel.getUsers(lastUserId, isEvictCache)
+        mModel.getGoldList(GoldConstants.GOLD_TYPE_ANDROID, GoldConstants.NUMBER_OF_PAGE, lastPage)
                 .subscribeOn(Schedulers.io())
                 .retryWhen(new RetryWithDelay(3, 2))//遇到错误时重试,第一个参数为重试几次,第二个参数为重试的间隔
                 .doOnSubscribe(disposable -> {
@@ -130,17 +101,17 @@ public class UserPresenter extends BasePresenter<UserContract.Model, UserContrac
                         mRootView.endLoadMore();//隐藏上拉加载更多的进度条
                 })
                 .compose(RxLifecycleUtils.bindToLifecycle(mRootView))//使用 Rxlifecycle,使 Disposable 和 Activity 一起销毁
-                .subscribe(new ErrorHandleSubscriber<List<User>>(mErrorHandler) {
+                .subscribe(new ErrorHandleSubscriber<GoldBaseResponse<List<GoldListBean>>>(mErrorHandler) {
                     @Override
-                    public void onNext(List<User> users) {
-                        lastUserId = users.get(users.size() - 1).getId();//记录最后一个id,用于下一次请求
-                        if (pullToRefresh) mUsers.clear();//如果是下拉刷新则清空列表
-                        preEndIndex = mUsers.size();//更新之前列表总长度,用于确定加载更多的起始位置
-                        mUsers.addAll(users);
+                    public void onNext(GoldBaseResponse<List<GoldListBean>> data) {
+                        lastPage = lastPage + 1;
+                        if (pullToRefresh) mDatas.clear();//如果是下拉刷新则清空列表
+                        preEndIndex = mDatas.size();//更新之前列表总长度,用于确定加载更多的起始位置
+                        mDatas.addAll(data.getResults());
                         if (pullToRefresh)
                             mAdapter.notifyDataSetChanged();
                         else
-                            mAdapter.notifyItemRangeInserted(preEndIndex, users.size());
+                            mAdapter.notifyItemRangeInserted(preEndIndex, data.getResults().size());
                     }
                 });
     }
@@ -150,7 +121,7 @@ public class UserPresenter extends BasePresenter<UserContract.Model, UserContrac
     public void onDestroy() {
         super.onDestroy();
         this.mAdapter = null;
-        this.mUsers = null;
+        this.mDatas = null;
         this.mErrorHandler = null;
         this.mAppManager = null;
         this.mApplication = null;

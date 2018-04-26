@@ -15,6 +15,7 @@
  */
 package me.jessyan.armscomponent.gold.mvp.ui.holder;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,8 +28,9 @@ import com.jess.arms.utils.ArmsUtils;
 import butterknife.BindView;
 import io.reactivex.Observable;
 import me.jessyan.armscomponent.commonsdk.imgaEngine.config.CommonImageConfigImpl;
-import me.jessyan.armscomponent.gold.mvp.model.entity.User;
+import me.jessyan.armscomponent.gold.R;
 import me.jessyan.armscomponent.gold.R2;
+import me.jessyan.armscomponent.gold.mvp.model.entity.GoldListBean;
 
 /**
  * ================================================
@@ -39,7 +41,7 @@ import me.jessyan.armscomponent.gold.R2;
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-public class UserItemHolder extends BaseHolder<User> {
+public class GoldHomeItemHolder extends BaseHolder<GoldListBean> {
 
     @BindView(R2.id.iv_avatar)
     ImageView mAvatar;
@@ -48,7 +50,7 @@ public class UserItemHolder extends BaseHolder<User> {
     private AppComponent mAppComponent;
     private ImageLoader mImageLoader;//用于加载图片的管理类,默认使用 Glide,使用策略模式,可替换框架
 
-    public UserItemHolder(View itemView) {
+    public GoldHomeItemHolder(View itemView) {
         super(itemView);
         //可以在任何可以拿到 Context 的地方,拿到 AppComponent,从而得到用 Dagger 管理的单例对象
         mAppComponent = ArmsUtils.obtainAppComponentFromContext(itemView.getContext());
@@ -56,19 +58,22 @@ public class UserItemHolder extends BaseHolder<User> {
     }
 
     @Override
-    public void setData(User data, int position) {
-        Observable.just(data.getLogin())
+    public void setData(GoldListBean data, int position) {
+        Observable.just(data.getTitle())
                 .subscribe(s -> mName.setText(s));
 
-        //itemView 的 Context 就是 Activity, Glide 会自动处理并和该 Activity 的生命周期绑定
-        mImageLoader.loadImage(itemView.getContext(),
-                CommonImageConfigImpl
-                        .builder()
-                        .url(data.getAvatarUrl())
-                        .imageView(mAvatar)
-                        .build());
+        if (data.getScreenshot() != null && !TextUtils.isEmpty(data.getScreenshot().getUrl())) {
+            //itemView 的 Context 就是 Activity, Glide 会自动处理并和该 Activity 的生命周期绑定
+            mImageLoader.loadImage(itemView.getContext(),
+                    CommonImageConfigImpl
+                            .builder()
+                            .url(data.getScreenshot().getUrl())
+                            .imageView(mAvatar)
+                            .build());
+        } else {
+            mAvatar.setImageResource(R.mipmap.gold_ic_logo);
+        }
     }
-
 
     @Override
     protected void onRelease() {

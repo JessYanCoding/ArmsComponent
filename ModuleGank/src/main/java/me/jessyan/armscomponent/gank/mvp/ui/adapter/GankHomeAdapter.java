@@ -24,7 +24,7 @@ import java.util.List;
 
 import me.jessyan.armscomponent.gank.R;
 import me.jessyan.armscomponent.gank.mvp.model.entity.GankItemBean;
-import me.jessyan.armscomponent.gank.mvp.ui.holder.GankHomeHolder;
+import me.jessyan.armscomponent.gank.mvp.ui.holder.GankHomeItemHolder;
 
 /**
  * ================================================
@@ -42,7 +42,7 @@ public class GankHomeAdapter extends DefaultAdapter<GankItemBean> {
 
     @Override
     public BaseHolder<GankItemBean> getHolder(View v, int viewType) {
-        return new GankHomeHolder(v);
+        return new GankHomeItemHolder(v);
     }
 
     @Override

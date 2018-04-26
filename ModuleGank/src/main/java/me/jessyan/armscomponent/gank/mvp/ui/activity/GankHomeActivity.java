@@ -78,7 +78,7 @@ public class GankHomeActivity extends BaseActivity<GankHomePresenter> implements
 
     @Override
     public int initView(@Nullable Bundle savedInstanceState) {
-        return R.layout.gank_activity_user;
+        return R.layout.gank_activity_home;
     }
 
     @Override

@@ -15,23 +15,22 @@
  */
 package me.jessyan.armscomponent.gold.di.module;
 
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.jess.arms.di.scope.ActivityScope;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
-import me.jessyan.armscomponent.gold.mvp.contract.UserContract;
-import me.jessyan.armscomponent.gold.mvp.contract.UserContract;
-import me.jessyan.armscomponent.gold.mvp.model.UserModel;
+import me.jessyan.armscomponent.gold.mvp.contract.GoldHomeContract;
+import me.jessyan.armscomponent.gold.mvp.model.GoldModel;
+import me.jessyan.armscomponent.gold.mvp.model.entity.GoldListBean;
 import me.jessyan.armscomponent.gold.mvp.model.entity.User;
-import me.jessyan.armscomponent.gold.mvp.ui.adapter.UserAdapter;
-import me.jessyan.armscomponent.gold.mvp.contract.UserContract;
+import me.jessyan.armscomponent.gold.mvp.ui.adapter.GoldHomeAdapter;
 
 /**
  * ================================================
@@ -44,51 +43,25 @@ import me.jessyan.armscomponent.gold.mvp.contract.UserContract;
  * ================================================
  */
 @Module
-public class UserModule {
-    private UserContract.View view;
+public abstract class GoldHomeModule {
+    @Binds
+    abstract GoldHomeContract.Model bindGoldModel(GoldModel model);
 
-    /**
-     * 构建 UserModule 时,将 View 的实现类传进来,这样就可以提供 View 的实现类给 Presenter
-     *
-     * @param view
-     */
-    public UserModule(UserContract.View view) {
-        this.view = view;
+    @ActivityScope
+    @Provides
+    static RecyclerView.LayoutManager provideLayoutManager(GoldHomeContract.View view) {
+        return new LinearLayoutManager(view.getActivity());
     }
 
     @ActivityScope
     @Provides
-    UserContract.View provideUserView() {
-        return this.view;
-    }
-
-    @ActivityScope
-    @Provides
-    UserContract.Model provideUserModel(UserModel model) {
-        return model;
-    }
-
-    @ActivityScope
-    @Provides
-    RxPermissions provideRxPermissions() {
-        return new RxPermissions(view.getActivity());
-    }
-
-    @ActivityScope
-    @Provides
-    RecyclerView.LayoutManager provideLayoutManager() {
-        return new GridLayoutManager(view.getActivity(), 2);
-    }
-
-    @ActivityScope
-    @Provides
-    List<User> provideUserList() {
+    static List<GoldListBean> provideList() {
         return new ArrayList<>();
     }
 
     @ActivityScope
     @Provides
-    RecyclerView.Adapter provideUserAdapter(List<User> list){
-        return new UserAdapter(list);
+    static RecyclerView.Adapter provideGoldHomeAdapter(List<GoldListBean> list){
+        return new GoldHomeAdapter(list);
     }
 }

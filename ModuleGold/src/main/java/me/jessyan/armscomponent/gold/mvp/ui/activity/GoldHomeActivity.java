@@ -29,7 +29,6 @@ import com.jess.arms.base.DefaultAdapter;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
 import com.paginate.Paginate;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import javax.inject.Inject;
 
@@ -37,10 +36,9 @@ import butterknife.BindView;
 import me.jessyan.armscomponent.commonsdk.core.RouterHub;
 import me.jessyan.armscomponent.gold.R;
 import me.jessyan.armscomponent.gold.R2;
-import me.jessyan.armscomponent.gold.di.component.DaggerUserComponent;
-import me.jessyan.armscomponent.gold.di.module.UserModule;
-import me.jessyan.armscomponent.gold.mvp.contract.UserContract;
-import me.jessyan.armscomponent.gold.mvp.presenter.UserPresenter;
+import me.jessyan.armscomponent.gold.di.component.DaggerGoldHomeComponent;
+import me.jessyan.armscomponent.gold.mvp.contract.GoldHomeContract;
+import me.jessyan.armscomponent.gold.mvp.presenter.GoldHomePresenter;
 import timber.log.Timber;
 
 
@@ -55,14 +53,11 @@ import timber.log.Timber;
  * ================================================
  */
 @Route(path = RouterHub.GOLD_HOMEACTIVITY)
-public class GoldHomeActivity extends BaseActivity<UserPresenter> implements UserContract.View, SwipeRefreshLayout.OnRefreshListener {
-
+public class GoldHomeActivity extends BaseActivity<GoldHomePresenter> implements GoldHomeContract.View, SwipeRefreshLayout.OnRefreshListener {
     @BindView(R2.id.recyclerView)
     RecyclerView mRecyclerView;
     @BindView(R2.id.swipeRefreshLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
-    @Inject
-    RxPermissions mRxPermissions;
     @Inject
     RecyclerView.LayoutManager mLayoutManager;
     @Inject
@@ -73,17 +68,17 @@ public class GoldHomeActivity extends BaseActivity<UserPresenter> implements Use
 
     @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
-        DaggerUserComponent
+        DaggerGoldHomeComponent
                 .builder()
                 .appComponent(appComponent)
-                .userModule(new UserModule(this))
+                .view(this)
                 .build()
                 .inject(this);
     }
 
     @Override
     public int initView(@Nullable Bundle savedInstanceState) {
-        return R.layout.gold_activity_user;
+        return R.layout.gold_activity_home;
     }
 
     @Override
@@ -96,7 +91,7 @@ public class GoldHomeActivity extends BaseActivity<UserPresenter> implements Use
 
     @Override
     public void onRefresh() {
-        mPresenter.requestUsers(true);
+        mPresenter.requestDatas(true);
     }
 
     /**
@@ -156,11 +151,6 @@ public class GoldHomeActivity extends BaseActivity<UserPresenter> implements Use
         return this;
     }
 
-    @Override
-    public RxPermissions getRxPermissions() {
-        return mRxPermissions;
-    }
-
     /**
      * 初始化Paginate,用于加载更多
      */
@@ -169,7 +159,7 @@ public class GoldHomeActivity extends BaseActivity<UserPresenter> implements Use
             Paginate.Callbacks callbacks = new Paginate.Callbacks() {
                 @Override
                 public void onLoadMore() {
-                    mPresenter.requestUsers(false);
+                    mPresenter.requestDatas(false);
                 }
 
                 @Override
@@ -194,7 +184,6 @@ public class GoldHomeActivity extends BaseActivity<UserPresenter> implements Use
     protected void onDestroy() {
         DefaultAdapter.releaseAllHolder(mRecyclerView);//super.onDestroy()之后会unbind,所有view被置为null,所以必须在之前调用
         super.onDestroy();
-        this.mRxPermissions = null;
         this.mPaginate = null;
     }
 }

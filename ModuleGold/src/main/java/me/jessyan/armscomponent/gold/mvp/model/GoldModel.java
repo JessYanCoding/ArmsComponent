@@ -15,9 +15,6 @@
  */
 package me.jessyan.armscomponent.gold.mvp.model;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.OnLifecycleEvent;
-
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.integration.IRepositoryManager;
 import com.jess.arms.mvp.BaseModel;
@@ -27,10 +24,11 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
-import me.jessyan.armscomponent.gold.mvp.contract.UserContract;
-import me.jessyan.armscomponent.gold.mvp.model.api.service.UserService;
-import me.jessyan.armscomponent.gold.mvp.model.entity.User;
-import timber.log.Timber;
+import me.jessyan.armscomponent.gold.app.GoldConstants;
+import me.jessyan.armscomponent.gold.mvp.contract.GoldHomeContract;
+import me.jessyan.armscomponent.gold.mvp.model.api.service.GoldService;
+import me.jessyan.armscomponent.gold.mvp.model.entity.GoldBaseResponse;
+import me.jessyan.armscomponent.gold.mvp.model.entity.GoldListBean;
 
 /**
  * ================================================
@@ -43,26 +41,18 @@ import timber.log.Timber;
  * ================================================
  */
 @ActivityScope
-public class UserModel extends BaseModel implements UserContract.Model {
-    public static final int USERS_PER_PAGE = 10;
+public class GoldModel extends BaseModel implements GoldHomeContract.Model {
 
     @Inject
-    public UserModel(IRepositoryManager repositoryManager) {
+    public GoldModel(IRepositoryManager repositoryManager) {
         super(repositoryManager);
     }
 
     @Override
-    public Observable<List<User>> getUsers(int lastIdQueried, boolean update) {
-        //使用rxcache缓存,上拉刷新则不读取缓存,加载更多读取缓存
+    public Observable<GoldBaseResponse<List<GoldListBean>>> getGoldList(String type, int num, int page) {
         return mRepositoryManager
-                .obtainRetrofitService(UserService.class)
-                .getUsers(lastIdQueried, USERS_PER_PAGE);
-
+                .obtainRetrofitService(GoldService.class)
+                .getGoldList(GoldConstants.LEANCLOUD_ID, GoldConstants.LEANCLOUD_SIGN,
+                "{\"category\":\"" + type + "\"}", "-createdAt", "user,user.installation", num, page * num);
     }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    void onPause() {
-        Timber.d("Release Resource");
-    }
-
 }

@@ -13,8 +13,6 @@
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="15px"
-        android:paddingTop="15px"
         >
 
         <android.support.v7.widget.RecyclerView

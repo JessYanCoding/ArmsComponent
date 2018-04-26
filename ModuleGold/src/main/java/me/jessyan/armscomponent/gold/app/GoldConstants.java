@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 JessYan
+ * Copyright 2018 JessYan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,27 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.gold.di.component;
-
-import com.jess.arms.di.component.AppComponent;
-import com.jess.arms.di.scope.ActivityScope;
-
-import dagger.Component;
-import me.jessyan.armscomponent.gold.di.module.UserModule;
-import me.jessyan.armscomponent.gold.mvp.ui.activity.GoldHomeActivity;
+package me.jessyan.armscomponent.gold.app;
 
 /**
  * ================================================
- * 展示 Component 的用法
- *
- * @see <a href="https://github.com/JessYanCoding/MVPArms/wiki#2.4.6">Component wiki 官方文档</a>
- * Created by JessYan on 09/04/2016 11:17
+ * Created by JessYan on 25/04/2018 16:48
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-@ActivityScope
-@Component(modules = UserModule.class, dependencies = AppComponent.class)
-public interface UserComponent {
-    void inject(GoldHomeActivity activity);
+public interface GoldConstants {
+    int NUMBER_OF_PAGE = 10;
+    String LEANCLOUD_ID = "mhke0kuv33myn4t4ghuid4oq2hjj12li374hvcif202y5bm6";
+    String LEANCLOUD_SIGN = "badc5461a25a46291054b902887a68eb,1480438132702";
+    String GOLD_TYPE_ANDROID = "android";
 }

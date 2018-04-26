@@ -18,12 +18,16 @@ package me.jessyan.armscomponent.gold.mvp.model.api.service;
 import java.util.List;
 
 import io.reactivex.Observable;
-import me.jessyan.armscomponent.gold.mvp.model.entity.User;
-import me.jessyan.armscomponent.gold.mvp.model.entity.User;
+import me.jessyan.armscomponent.gold.mvp.model.entity.GoldBaseResponse;
+import me.jessyan.armscomponent.gold.mvp.model.entity.GoldListBean;
 import retrofit2.Retrofit;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.Query;
+
+import static me.jessyan.armscomponent.gold.mvp.model.api.Api.GOLD_DOMAIN_NAME;
+import static me.jessyan.retrofiturlmanager.RetrofitUrlManager.DOMAIN_NAME_HEADER;
 
 /**
  * ================================================
@@ -35,10 +39,17 @@ import retrofit2.http.Query;
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-public interface UserService {
-    String HEADER_API_VERSION = "Accept: application/vnd.github.v3+json";
-
-    @Headers({HEADER_API_VERSION})
-    @GET("/users")
-    Observable<List<User>> getUsers(@Query("since") int lastIdQueried, @Query("per_page") int perPage);
+public interface GoldService {
+    /**
+     * 文章列表
+     */
+    @Headers({DOMAIN_NAME_HEADER + GOLD_DOMAIN_NAME})
+    @GET("/1.1/classes/Entry")
+    Observable<GoldBaseResponse<List<GoldListBean>>> getGoldList(@Header("X-LC-Id") String id,
+                                                               @Header("X-LC-Sign") String sign,
+                                                               @Query("where") String where,
+                                                               @Query("order") String order,
+                                                               @Query("include") String include,
+                                                               @Query("limit") int limit,
+                                                               @Query("skip") int skip);
 }
