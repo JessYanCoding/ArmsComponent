@@ -82,21 +82,38 @@ public class MainActivity extends BaseActivity {
     }
 
     private void loadZhihuInfo() {
+        //当非集成调试阶段, 宿主 App 由于没有依赖其他组件, 所以使用不了对应组件提供的服务
+        if (mZhihuInfoService == null) {
+            mZhihuButton.setEnabled(false);
+            return;
+        }
         mZhihuButton.setText(mZhihuInfoService.getInfo().getName());
     }
 
     private void loadGankInfo() {
+        //当非集成调试阶段, 宿主 App 由于没有依赖其他组件, 所以使用不了对应组件提供的服务
+        if (mGankInfoService == null) {
+            mGankButton.setEnabled(false);
+            return;
+        }
         mGankButton.setText(mGankInfoService.getInfo().getName());
     }
 
     private void loadGoldInfo() {
+        //当非集成调试阶段, 宿主 App 由于没有依赖其他组件, 所以使用不了对应组件提供的服务
+        if (mGoldInfoService == null) {
+            mGoldButton.setEnabled(false);
+            return;
+        }
         mGoldButton.setText(mGoldInfoService.getInfo().getName());
     }
 
     @Override
     public void onBackPressed() {
-        long mNowTime = System.currentTimeMillis();//获取第一次按键时间
-        if ((mNowTime - mPressedTime) > 2000) {//比较两次按键时间差
+        //获取第一次按键时间
+        long mNowTime = System.currentTimeMillis();
+        //比较两次按键时间差
+        if ((mNowTime - mPressedTime) > 2000) {
             ArmsUtils.makeText(getApplicationContext(),
                     "再按一次退出" + ArmsUtils.getString(getApplicationContext(), R.string.public_app_name));
             mPressedTime = mNowTime;
