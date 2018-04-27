@@ -57,5 +57,6 @@ public interface RouterHub {
      * 稀土掘金分组
      */
     String GOLD_HOMEACTIVITY = GOLD + "/HomeActivity";
+    String GOLD_DETAILACTIVITY = GOLD + "/DetailActivity";
 
 }

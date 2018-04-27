@@ -17,7 +17,10 @@ package me.jessyan.armscomponent.gold.di.module;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.jess.arms.base.DefaultAdapter;
 import com.jess.arms.di.scope.ActivityScope;
 
 import java.util.ArrayList;
@@ -26,10 +29,11 @@ import java.util.List;
 import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
+import me.jessyan.armscomponent.commonsdk.core.RouterHub;
+import me.jessyan.armscomponent.gold.app.GoldConstants;
 import me.jessyan.armscomponent.gold.mvp.contract.GoldHomeContract;
 import me.jessyan.armscomponent.gold.mvp.model.GoldModel;
 import me.jessyan.armscomponent.gold.mvp.model.entity.GoldListBean;
-import me.jessyan.armscomponent.gold.mvp.model.entity.User;
 import me.jessyan.armscomponent.gold.mvp.ui.adapter.GoldHomeAdapter;
 
 /**
@@ -61,7 +65,18 @@ public abstract class GoldHomeModule {
 
     @ActivityScope
     @Provides
-    static RecyclerView.Adapter provideGoldHomeAdapter(List<GoldListBean> list){
-        return new GoldHomeAdapter(list);
+    static RecyclerView.Adapter provideGoldHomeAdapter(GoldHomeContract.View GoldHomeView, List<GoldListBean> list){
+        GoldHomeAdapter adapter = new GoldHomeAdapter(list);
+        adapter.setOnItemClickListener(new DefaultAdapter.OnRecyclerViewItemClickListener<GoldListBean>() {
+            @Override
+            public void onItemClick(View view, int viewType, GoldListBean data, int position) {
+                ARouter.getInstance()
+                        .build(RouterHub.GOLD_DETAILACTIVITY)
+                        .withString(GoldConstants.DETAIL_URL, data.getUrl())
+                        .withString(GoldConstants.DETAIL_TITLE, data.getTitle())
+                        .navigation(GoldHomeView.getActivity());
+            }
+        });
+        return adapter;
     }
 }

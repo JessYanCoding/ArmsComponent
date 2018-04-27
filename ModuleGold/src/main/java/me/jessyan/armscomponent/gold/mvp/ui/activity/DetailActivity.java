@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.zhihu.mvp.ui.activity;
+package me.jessyan.armscomponent.gold.mvp.ui.activity;
 
-import android.app.Activity;
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -28,22 +27,13 @@ import android.webkit.WebViewClient;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
-import com.jess.arms.utils.ArmsUtils;
-
-import javax.inject.Inject;
 
 import butterknife.BindView;
+import me.jessyan.armscomponent.commonres.dialog.ProgresDialog;
 import me.jessyan.armscomponent.commonsdk.core.RouterHub;
-import me.jessyan.armscomponent.zhihu.R;
-import me.jessyan.armscomponent.zhihu.R2;
-import me.jessyan.armscomponent.zhihu.app.ZhihuConstants;
-import me.jessyan.armscomponent.commonsdk.utils.HtmlUtil;
-import me.jessyan.armscomponent.zhihu.di.component.DaggerDetailComponent;
-import me.jessyan.armscomponent.zhihu.mvp.contract.DetailContract;
-import me.jessyan.armscomponent.zhihu.mvp.model.entity.ZhihuDetailBean;
-import me.jessyan.armscomponent.zhihu.mvp.presenter.DetailPresenter;
-
-import static com.jess.arms.utils.Preconditions.checkNotNull;
+import me.jessyan.armscomponent.gold.R;
+import me.jessyan.armscomponent.gold.R2;
+import me.jessyan.armscomponent.gold.app.GoldConstants;
 
 /**
  * ================================================
@@ -55,60 +45,28 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-@Route(path = RouterHub.ZHIHU_DETAILACTIVITY)
-public class DetailActivity extends BaseActivity<DetailPresenter> implements DetailContract.View {
+@Route(path = RouterHub.GOLD_DETAILACTIVITY)
+public class DetailActivity extends BaseActivity {
     @BindView(R2.id.webView)
     WebView mWebView;
-    @Inject
-    Dialog mDialog;
+    private Dialog mDialog;
 
     @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
-        DaggerDetailComponent //如找不到该类,请编译一下项目
-                .builder()
-                .appComponent(appComponent)
-                .view(this)
-                .build()
-                .inject(this);
+
     }
 
     @Override
     public int initView(@Nullable Bundle savedInstanceState) {
-        return R.layout.zhihu_activity_detail; //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
+        return R.layout.gold_activity_detail; //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
     }
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
+        mDialog = new ProgresDialog(this);
         initWebView();
         loadTitle();
-        mPresenter.requestDetailInfo(getIntent().getIntExtra(ZhihuConstants.DETAIL_ID, 0));
-    }
-
-    @Override
-    public void showLoading() {
-        mDialog.show();
-    }
-
-    @Override
-    public void hideLoading() {
-        mDialog.dismiss();
-    }
-
-    @Override
-    public void showMessage(@NonNull String message) {
-        checkNotNull(message);
-        ArmsUtils.snackbarText(message);
-    }
-
-    @Override
-    public void launchActivity(@NonNull Intent intent) {
-        checkNotNull(intent);
-        ArmsUtils.startActivity(intent);
-    }
-
-    @Override
-    public void killMyself() {
-        finish();
+        mWebView.loadUrl(getIntent().getStringExtra(GoldConstants.DETAIL_URL));
     }
 
     private void initWebView() {
@@ -124,24 +82,27 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
                 return true;
             }
         });
+        mWebView.setWebChromeClient(new WebChromeClient(){
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+                super.onProgressChanged(view, newProgress);
+                if (mDialog == null){
+                    return;
+                }
+                if (newProgress == 100) {
+                    mDialog.dismiss();
+                } else {
+                    mDialog.show();
+                }
+            }
+        });
     }
 
     private void loadTitle() {
-        String title = getIntent().getStringExtra(ZhihuConstants.DETAIL_TITLE);
+        String title = getIntent().getStringExtra(GoldConstants.DETAIL_TITLE);
         if (title.length() > 10) {
             title = title.substring(0, 10) + " ...";
         }
         setTitle(title);
-    }
-
-    @Override
-    public void shonContent(ZhihuDetailBean bean) {
-        String htmlData = HtmlUtil.createHtmlData(bean.getBody(), bean.getCss(), bean.getJs());
-        mWebView.loadData(htmlData, HtmlUtil.MIME_TYPE, ZhihuConstants.ENCODING);
-    }
-
-    @Override
-    public Activity getActivity() {
-        return this;
     }
 }
