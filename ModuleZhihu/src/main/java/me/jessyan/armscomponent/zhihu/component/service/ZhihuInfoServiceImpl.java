@@ -13,19 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.commonservice.zhihu.service;
+package me.jessyan.armscomponent.zhihu.component.service;
 
-import com.alibaba.android.arouter.facade.template.IProvider;
+import android.content.Context;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.jess.arms.utils.ArmsUtils;
+
+import me.jessyan.armscomponent.commonsdk.core.RouterHub;
 import me.jessyan.armscomponent.commonservice.zhihu.bean.ZhihuInfo;
+import me.jessyan.armscomponent.commonservice.zhihu.service.ZhihuInfoService;
+import me.jessyan.armscomponent.zhihu.R;
 
 /**
  * ================================================
- * Created by JessYan on 2018/4/27 14:16
+ * Created by JessYan on 2018/4/27 14:27
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-public interface ZhihuInfoService extends IProvider {
-    ZhihuInfo getInfo();
+@Route(path = RouterHub.ZHIHU_SERVICE_ZHIHUINFOSERVICE, name = "知乎信息服务")
+public class ZhihuInfoServiceImpl implements ZhihuInfoService {
+    private Context mContext;
+
+    @Override
+    public ZhihuInfo getInfo() {
+        return new ZhihuInfo(ArmsUtils.getString(mContext, R.string.public_name_zhihu));
+    }
+
+    @Override
+    public void init(Context context) {
+        mContext = context;
+    }
 }

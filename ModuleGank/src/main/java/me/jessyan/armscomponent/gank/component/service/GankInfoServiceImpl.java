@@ -13,19 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.commonservice.gank.service;
+package me.jessyan.armscomponent.gank.component.service;
 
-import com.alibaba.android.arouter.facade.template.IProvider;
+import android.content.Context;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.jess.arms.utils.ArmsUtils;
+
+import me.jessyan.armscomponent.commonsdk.core.RouterHub;
 import me.jessyan.armscomponent.commonservice.gank.bean.GankInfo;
+import me.jessyan.armscomponent.commonservice.gank.service.GankInfoService;
+import me.jessyan.armscomponent.gank.R;
 
 /**
  * ================================================
- * Created by JessYan on 2018/4/27 14:16
+ * Created by JessYan on 2018/4/27 14:27
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-public interface GankInfoService extends IProvider {
-    GankInfo getInfo();
+@Route(path = RouterHub.GANK_SERVICE_GANKINFOSERVICE, name = "干货集中营信息服务")
+public class GankInfoServiceImpl implements GankInfoService {
+    private Context mContext;
+
+    @Override
+    public GankInfo getInfo() {
+        return new GankInfo(ArmsUtils.getString(mContext, R.string.public_name_gank));
+    }
+
+    @Override
+    public void init(Context context) {
+        mContext = context;
+    }
 }

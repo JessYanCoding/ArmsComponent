@@ -23,7 +23,6 @@ android {
 }
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar'])
     compileOnly rootProject.ext.dependencies["arouter"]
     compileOnly rootProject.ext.dependencies["appcompat-v7"]
 }

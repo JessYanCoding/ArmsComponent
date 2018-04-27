@@ -3,6 +3,7 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              xmlns:tools="http://schemas.android.com/tools"
               android:background="@color/public_white"
               android:orientation="vertical">
 
@@ -27,7 +28,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/public_background"
-            android:text="@string/public_name_zhihu"
+            tools:text="@string/public_name_zhihu"
             android:textColor="@color/public_color_959292"
             android:textSize="@dimen/public_font_24sp"
             />
@@ -38,7 +39,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/public_background"
-            android:text="@string/public_name_gank"
+            tools:text="@string/public_name_gank"
             android:textColor="@color/public_color_959292"
             android:textSize="@dimen/public_font_24sp"
             />
@@ -49,7 +50,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/public_background"
-            android:text="@string/public_name_gold"
+            tools:text="@string/public_name_gold"
             android:textColor="@color/public_color_959292"
             android:textSize="@dimen/public_font_24sp"
             />
