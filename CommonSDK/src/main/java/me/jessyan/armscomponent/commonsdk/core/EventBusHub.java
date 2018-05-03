@@ -27,4 +27,11 @@ package me.jessyan.armscomponent.commonsdk.core;
  * ================================================
  */
 public interface EventBusHub {
+    /**
+     * 组名
+     */
+    String APP = "app";//宿主 App 组件
+    String ZHIHU = "zhihu";//知乎组件
+    String GANK = "gank";//干货集中营组件
+    String GOLD = "gold";//稀土掘金组件
 }
