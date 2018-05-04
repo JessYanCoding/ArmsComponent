@@ -8,15 +8,14 @@
 
 ## A complete android componentization solution, powered by MVPArms.
 
+## Overview
+![gif](arts/ArmsComponent.gif)
+
 ## Wiki
 [Wiki Documents](https://github.com/JessYanCoding/ArmsComponent/wiki)
 
 # Architectural
 ![Architecture](arts/ArmsComponentArchitecture.jpeg)
-
-## Overview
-![gif](arts/ArmsComponent.gif)
-
 
 ## Donate
 ![alipay](https://raw.githubusercontent.com/JessYanCoding/MVPArms/master/image/pay_alipay.jpg) ![weixinpay](https://raw.githubusercontent.com/JessYanCoding/MVPArms/master/image/pay_wxpay.jpg)
