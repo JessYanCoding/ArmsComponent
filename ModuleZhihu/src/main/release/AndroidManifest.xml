@@ -13,10 +13,7 @@
             android:name=".mvp.ui.activity.DetailActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"/>
-        <!-- 每个业务组件需要声明两个 ConfigModule, CommonSDK 的 ConfigModule 和 业务组件自己的 ConfigModule
-        CommonSDK 的 ConfigModule 含有有每个组件都可共用的配置信息, 业务组件自己的 ConfigModule 含有自己独有的配置
-        信息, 这样即可重用代码, 又可以允许每个组件可自行管理自己独有的配置信息, 如果业务组件没有独有的配置信息则只需要
-        声明 CommonSDK 的 ConfigModule-->
+        <!-- 在组件集成宿主时, 由于宿主已经声明了 CommonSDK 的公有 ConfigModule, 所以在这里只需要声明业务组件自己的 ConfigModule -->
         <meta-data
             android:name="me.jessyan.armscomponent.zhihu.app.GlobalConfiguration"
             android:value="ConfigModule"/>

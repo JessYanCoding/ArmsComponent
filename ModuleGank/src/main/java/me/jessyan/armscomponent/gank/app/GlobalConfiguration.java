@@ -32,9 +32,9 @@ import me.jessyan.armscomponent.gank.BuildConfig;
 
 /**
  * ================================================
- * App 的全局配置信息在此配置, 需要将此实现类声明到 AndroidManifest 中
- * ConfigModule 的实现类可以有无数多个, 在 Application 中只是注册回调, 并不会影响性能 (多个 ConfigModule 在多 Module 环境下尤为受用)
- * 不过要注意 ConfigModule 接口的实现类对象是通过反射生成的, 这里会有些性能损耗
+ * 组件的全局配置信息在此配置, 需要将此实现类声明到 AndroidManifest 中
+ * CommonSDK 中已有 {@link me.jessyan.armscomponent.commonsdk.core.GlobalConfiguration} 配置有组件可公用的配置信息
+ * 这里用来配置一些组件自身私有的配置信息
  *
  * @see com.jess.arms.base.delegate.AppDelegate
  * @see com.jess.arms.integration.ManifestParser
