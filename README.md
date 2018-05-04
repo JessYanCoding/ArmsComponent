@@ -13,13 +13,8 @@
 ![gif](arts/ArmsComponent.gif)
 
 
-## Usage
-In gradle.properties:
-
-```gradle
-#isBuildModule 为 true 时可以使每个组件独立运行, false 则可以将所有组件集成到宿主 App 中
-isBuildModule=true
-```
+## Wiki
+[Wiki Documents](https://github.com/JessYanCoding/ArmsComponent/wiki)
 
 ## Donate
 ![alipay](https://raw.githubusercontent.com/JessYanCoding/MVPArms/master/image/pay_alipay.jpg) ![weixinpay](https://raw.githubusercontent.com/JessYanCoding/MVPArms/master/image/pay_wxpay.jpg)
