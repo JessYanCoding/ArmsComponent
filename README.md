@@ -12,7 +12,7 @@
 ![gif](arts/ArmsComponent.gif)
 
 ## Wiki
-[Wiki Documents](https://github.com/JessYanCoding/ArmsComponent/wiki)
+[**Wiki Documents**](https://github.com/JessYanCoding/ArmsComponent/wiki)
 
 ## Architectural
 <img src="https://raw.githubusercontent.com/JessYanCoding/ArmsComponent/master/arts/ArmsComponentArchitecture.jpeg" width="80%" height="80%">
