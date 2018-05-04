@@ -14,8 +14,8 @@
 ## Wiki
 [Wiki Documents](https://github.com/JessYanCoding/ArmsComponent/wiki)
 
-# Architectural
-![Architecture](arts/ArmsComponentArchitecture.jpeg)
+## Architectural
+<img src="https://raw.githubusercontent.com/JessYanCoding/ArmsComponent/master/arts/ArmsComponentArchitecture.jpeg" width="80%" height="80%">
 
 ## Donate
 ![alipay](https://raw.githubusercontent.com/JessYanCoding/MVPArms/master/image/pay_alipay.jpg) ![weixinpay](https://raw.githubusercontent.com/JessYanCoding/MVPArms/master/image/pay_wxpay.jpg)
