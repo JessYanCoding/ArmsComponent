@@ -6,7 +6,9 @@ buildscript {
         google()
     }
     dependencies {
+        //这里使用 v3.0.1 是因为 butterknife 插件不支持 v3.0.1 以上的 gradle 插件
         classpath 'com.android.tools.build:gradle:3.0.1'
+        //这里不使用最新的 butterknife 插件, 是因为最新版插件会出现一些问题
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
     }
 }
