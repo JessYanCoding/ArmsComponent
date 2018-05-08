@@ -23,7 +23,8 @@ package me.jessyan.armscomponent.commonsdk.core;
  * EventBusHub 用来定义 AndroidEventBus 的 Tag 字符串, 以组件名作为 Tag 前缀, 对每个组件的事件进行分组
  * Tag 的命名规则为 组件名 + 页面名 + 动作
  * 比如需要使用 AndroidEventBus 通知订单组件的订单详情页进行刷新, 可以将这个刷新方法的 Tag 命名为 "order/OrderDetailActivity/refresh"
- * <p>
+ *
+ * @see <a href="https://github.com/JessYanCoding/ArmsComponent/wiki#3.5">EventBusHub wiki 官方文档</a>
  * Created by JessYan on 30/03/2018 17:46
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
