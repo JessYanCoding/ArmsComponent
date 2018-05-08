@@ -23,7 +23,8 @@ package me.jessyan.armscomponent.commonsdk.core;
  * ARouter 将路由地址中第一个 '/' 后面的字符称为 Group, 比如上面的示例路由地址中 order 就是 Group, 以 order 开头的地址都被分配该 Group 下
  * 切记不同的组件中不能出现名称一样的 Group, 否则会发生该 Group 下的部分路由地址找不到的情况!!!
  * 所以每个组件使用自己的组件名作为 Group 是比较好的选择, 毕竟组件不会重名
- * <p>
+ *
+ * @see <a href="https://github.com/JessYanCoding/ArmsComponent/wiki#3.4">RouterHub wiki 官方文档</a>
  * Created by JessYan on 30/03/2018 18:07
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
