@@ -16,6 +16,9 @@
 ## Wiki
 [**Wiki Documents**](https://github.com/JessYanCoding/ArmsComponent/wiki)
 
+## Notice
+[Article](https://www.jianshu.com/p/f671dd76868f)
+
 ## Architectural
 <img src="https://raw.githubusercontent.com/JessYanCoding/ArmsComponent/master/arts/ArmsComponentArchitecture.jpeg" width="80%" height="80%">
 
