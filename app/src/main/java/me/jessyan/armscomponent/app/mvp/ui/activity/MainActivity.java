@@ -39,6 +39,9 @@ import me.jessyan.armscomponent.commonservice.zhihu.service.ZhihuInfoService;
 
 /**
  * ================================================
+ * 宿主 App 的主页
+ *
+ * @see <a href="https://github.com/JessYanCoding/ArmsComponent/wiki">ArmsComponent wiki 官方文档</a>
  * Created by JessYan on 19/04/2018 16:10
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
