@@ -27,6 +27,9 @@ import me.jessyan.armscomponent.gank.R;
 
 /**
  * ================================================
+ * 向外提供服务的接口实现类, 在此类中实现一些具有特定功能的方法提供给外部, 即可让一个组件与其他组件或宿主进行交互
+ *
+ * @see <a href="https://github.com/JessYanCoding/ArmsComponent/wiki#2.2.3.2">CommonService wiki 官方文档</a>
  * Created by JessYan on 2018/4/27 14:27
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
