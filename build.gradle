@@ -4,12 +4,13 @@ buildscript {
     repositories {
         jcenter()
         google()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
     dependencies {
-        //这里使用 v3.0.1 是因为 butterknife v8.4.0 插件不支持 v3.0.1 以上的 gradle 插件
-        classpath 'com.android.tools.build:gradle:3.0.1'
-        //这里不使用最新的 butterknife 插件, 是因为最新版插件在组件化中会出现一些问题
-        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
+        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0-SNAPSHOT'
+        //如果 ButterKnife 插件和其他插件发生冲突而报错请试试 v8.4.0 版本的 ButterKnife 插件, 注意 v8.4.0 最高只能支持 com.android.tools.build:gradle:3.0.1
+//        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
     }
 }
 
