@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="me.jessyan.armscomponent.gold">
 
-    <application
-        android:theme="@style/public_AppTheme">
+    <application>
         <activity
             android:name=".mvp.ui.activity.GoldHomeActivity"
             android:label="@string/public_name_gold"

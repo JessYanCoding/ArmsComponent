@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="me.jessyan.armscomponent.zhihu">
 
-    <application
-        android:theme="@style/public_AppTheme">
+    <application>
         <activity
             android:name=".mvp.ui.activity.ZhihuHomeActivity"
             android:configChanges="orientation|screenSize"
