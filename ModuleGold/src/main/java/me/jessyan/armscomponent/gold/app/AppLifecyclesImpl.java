@@ -17,6 +17,7 @@ package me.jessyan.armscomponent.gold.app;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import com.jess.arms.base.delegate.AppLifecycles;
 import com.jess.arms.utils.ArmsUtils;
@@ -41,12 +42,12 @@ import static me.jessyan.armscomponent.gold.mvp.model.api.Api.GOLD_DOMAIN_NAME;
 public class AppLifecyclesImpl implements AppLifecycles {
 
     @Override
-    public void attachBaseContext(Context base) {
+    public void attachBaseContext(@NonNull Context base) {
 
     }
 
     @Override
-    public void onCreate(Application application) {
+    public void onCreate(@NonNull Application application) {
         if (LeakCanary.isInAnalyzerProcess(application)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
@@ -62,7 +63,7 @@ public class AppLifecyclesImpl implements AppLifecycles {
     }
 
     @Override
-    public void onTerminate(Application application) {
+    public void onTerminate(@NonNull Application application) {
 
     }
 }

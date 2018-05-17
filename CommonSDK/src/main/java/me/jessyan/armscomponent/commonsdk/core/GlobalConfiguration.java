@@ -18,6 +18,7 @@ package me.jessyan.armscomponent.commonsdk.core;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
@@ -86,11 +87,11 @@ public class GlobalConfiguration implements ConfigModule {
         lifecycles.add(new AppLifecycles() {
 
             @Override
-            public void attachBaseContext(Context base) {
+            public void attachBaseContext(@NonNull Context base) {
             }
 
             @Override
-            public void onCreate(Application application) {
+            public void onCreate(@NonNull Application application) {
                 if (BuildConfig.LOG_DEBUG) {//Timber日志打印
                     Timber.plant(new Timber.DebugTree());
                     ButterKnife.setDebug(true);
@@ -102,7 +103,7 @@ public class GlobalConfiguration implements ConfigModule {
             }
 
             @Override
-            public void onTerminate(Application application) {
+            public void onTerminate(@NonNull Application application) {
 
             }
         });
