@@ -6,6 +6,6 @@
     <item android:bottom="140dp">
         <bitmap
             android:gravity="center"
-            android:src="@mipmap/arms_log" />
+            android:src="@mipmap/arms_logo" />
     </item>
 </layer-list>
