@@ -8,7 +8,10 @@
 
 ## A complete android componentization solution, powered by [MVPArms](https://github.com/JessYanCoding/MVPArms).
 
-## MVPArms 官方快速组件化方案
+## [MVPArms](https://github.com/JessYanCoding/MVPArms) 官方快速组件化方案
+
+## Architectural
+<img src="https://raw.githubusercontent.com/JessYanCoding/ArmsComponent/master/arts/ArmsComponentArchitecture.jpeg" width="90%" height="90%">
 
 ## Overview
 ![gif](arts/ArmsComponent.gif)
@@ -23,8 +26,6 @@
 
 [ArmsComponent 依赖于 MVPArms, 学习好 MVPArms 才有利于使用 ArmsComponent](https://github.com/JessYanCoding/MVPArms/wiki)
 
-## Architectural
-<img src="https://raw.githubusercontent.com/JessYanCoding/ArmsComponent/master/arts/ArmsComponentArchitecture.jpeg" width="80%" height="80%">
 
 ## Donate
 ![alipay](https://raw.githubusercontent.com/JessYanCoding/MVPArms/master/image/pay_alipay.jpg) ![weixinpay](https://raw.githubusercontent.com/JessYanCoding/MVPArms/master/image/pay_wxpay.jpg)
