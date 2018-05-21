@@ -1,4 +1,4 @@
-# ArmsComponent
+# ArmsComponent ([MVPArms](https://github.com/JessYanCoding/MVPArms) 官方快速组件化方案)
 [ ![Build Status](https://travis-ci.org/JessYanCoding/ArmsComponent.svg?branch=master) ](https://travis-ci.org/JessYanCoding/ArmsComponent)
 [ ![API](https://img.shields.io/badge/API-16%2B-blue.svg?style=flat-square) ](https://developer.android.com/about/versions/android-4.1)
 [ ![License](http://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square) ](http://www.apache.org/licenses/LICENSE-2.0)
@@ -7,8 +7,6 @@
 
 
 ## A complete android componentization solution, powered by [MVPArms](https://github.com/JessYanCoding/MVPArms).
-
-## [MVPArms](https://github.com/JessYanCoding/MVPArms) 官方快速组件化方案
 
 ## Architectural
 <img src="https://raw.githubusercontent.com/JessYanCoding/ArmsComponent/master/arts/ArmsComponentArchitecture.jpeg" width="90%" height="90%">
