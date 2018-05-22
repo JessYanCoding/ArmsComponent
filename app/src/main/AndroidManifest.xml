@@ -13,7 +13,7 @@
     <application
         android:name="com.jess.arms.base.BaseApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/arms_logo"
+        android:icon="@mipmap/arms_component_logo"
         android:label="@string/public_app_name"
         android:supportsRtl="true"
         android:theme="@style/public_AppTheme">
