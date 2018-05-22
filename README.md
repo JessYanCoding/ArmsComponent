@@ -22,11 +22,13 @@
 ## A complete android componentization solution, powered by [MVPArms](https://github.com/JessYanCoding/MVPArms) (MVPArms 官方快速组件化方案).
 
 ## Architectural
-<img src="https://raw.githubusercontent.com/JessYanCoding/ArmsComponent/master/arts/ArmsComponentArchitecture.jpeg" width="90%" height="90%">
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JessYanCoding/ArmsComponent/master/arts/ArmsComponentArchitecture.jpeg" width="90%" height="90%">
+</p>  
 
 ## Overview
 <p align="center">
-<img src="arts/ArmsComponent.gif" alt="Gif" />
+  <img src="arts/ArmsComponent.gif"/>
 </p>  
 
 ## Wiki
