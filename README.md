@@ -25,7 +25,9 @@
 <img src="https://raw.githubusercontent.com/JessYanCoding/ArmsComponent/master/arts/ArmsComponentArchitecture.jpeg" width="90%" height="90%">
 
 ## Overview
-![gif](arts/ArmsComponent.gif)
+<p align="center">
+<img src="arts/ArmsComponent.gif" alt="Gif" />
+</p>  
 
 ## Wiki
 [**Wiki Documents (开发前必看!!!)**](https://github.com/JessYanCoding/ArmsComponent/wiki)
