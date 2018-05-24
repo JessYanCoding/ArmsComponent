@@ -55,7 +55,7 @@ dependencies {
     if (!isBuildModule.toBoolean()) {
         implementation project(":ModuleZhihu")
         implementation project(":module-gank")
-        implementation project(":ModuleGold")
+        implementation project(":module-gold")
     } else {
         implementation project(":CommonRes")//因为 CommonRes 依赖了 CommonSDK, 所以如果业务模块需要公共 UI 组件就依赖 CommonRes, 如果不需要就只依赖 CommonSDK
         implementation project(":CommonService")
