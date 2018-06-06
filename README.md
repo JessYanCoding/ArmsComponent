@@ -39,6 +39,8 @@
 
 [一键搭建整体组件架构, 让您体验纯傻瓜式的组件化开发 (**开发神器, 不看后悔!**)](https://github.com/JessYanCoding/ArmsComponent-Template)
 
+[常见 Issues](https://github.com/JessYanCoding/ArmsComponent/wiki/Issues)
+
 [ArmsComponent 依赖于 MVPArms, 学习好 MVPArms 才有利于使用 ArmsComponent](https://github.com/JessYanCoding/MVPArms/wiki)
 
 
