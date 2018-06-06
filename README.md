@@ -41,6 +41,8 @@
 
 [常见 Issues](https://github.com/JessYanCoding/ArmsComponent/wiki/Issues)
 
+[意见收集](https://github.com/JessYanCoding/ArmsComponent/issues/1)
+
 [ArmsComponent 依赖于 MVPArms, 学习好 MVPArms 才有利于使用 ArmsComponent](https://github.com/JessYanCoding/MVPArms/wiki)
 
 
