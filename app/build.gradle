@@ -53,13 +53,15 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     if (!isBuildModule.toBoolean()) {
-        implementation project(":module-zhihu")
-        implementation project(":module-gank")
-        implementation project(":module-gold")
-    } else {
-        implementation project(":CommonRes")//因为 CommonRes 依赖了 CommonSDK, 所以如果业务模块需要公共 UI 组件就依赖 CommonRes, 如果不需要就只依赖 CommonSDK
-        implementation project(":CommonService")
+        //在宿主 App 中使用 implementation 依赖业务组件, 业务组件的代码就会完全暴露给宿主 App, 不利于代码的隔离
+        //使用 runtimeOnly 依赖业务组件, 可实现业务组件的代码在编译时对宿主 App 不可见, 运行时才对宿主 App 可见
+        runtimeOnly project(":module-zhihu")
+        runtimeOnly project(":module-gank")
+        runtimeOnly project(":module-gold")
     }
+    implementation project(":CommonRes")//因为 CommonRes 依赖了 CommonSDK, 所以如果业务模块需要公共 UI 组件就依赖 CommonRes, 如果不需要就只依赖 CommonSDK
+    implementation project(":CommonService")
+
     //tools
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
     annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
