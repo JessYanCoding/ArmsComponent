@@ -45,10 +45,6 @@
 
 [ArmsComponent 依赖于 MVPArms, 学习好 MVPArms 才有利于使用 ArmsComponent](https://github.com/JessYanCoding/MVPArms/wiki)
 
-
-## Donate
-![alipay](https://raw.githubusercontent.com/JessYanCoding/MVPArms/master/image/pay_alipay.jpg) ![weixinpay](https://raw.githubusercontent.com/JessYanCoding/MVPArms/master/image/pay_wxpay.jpg)
-
 ## About Me
 * **Email**: <jess.yan.effort@gmail.com>
 * **Home**: <http://jessyan.me>
