@@ -52,7 +52,7 @@ ext {
             "nineoldandroids"          : "com.nineoldandroids:library:2.4.0",
             "paginate"                 : "com.github.markomilos:paginate:0.5.1",
             "vlayout"                  : "com.alibaba.android:vlayout:1.1.0@aar",
-            "lottie"                   : "com.airbnb.android:lottie:2.5.4",
+            "lottie"                   : "com.airbnb.android:lottie:2.7.0",
             "autosize"                 : "me.jessyan:autosize:1.1.0",
 
             //rx1
