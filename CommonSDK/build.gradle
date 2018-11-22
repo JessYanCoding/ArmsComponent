@@ -36,8 +36,11 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    api 'me.jessyan:arms:2.4.1'
+    api 'me.jessyan:arms:2.5.0'
+    api 'me.jessyan:arms-imageloader-glide:2.5.0'
+
     //tools
+    api rootProject.ext.dependencies["androideventbus"]
     api(rootProject.ext.dependencies["arouter"]) {
         exclude module: 'support-v4'
         exclude module: 'support-annotations'
