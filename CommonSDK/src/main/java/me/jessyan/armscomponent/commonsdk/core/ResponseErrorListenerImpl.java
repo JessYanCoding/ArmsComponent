@@ -69,6 +69,8 @@ public class ResponseErrorListenerImpl implements ResponseErrorListener {
             msg = "请求地址不存在";
         } else if (httpException.code() == 403) {
             msg = "请求被服务器拒绝";
+        } else if (httpException.code() == 401) {
+            msg = "未授权";
         } else if (httpException.code() == 307) {
             msg = "请求被重定向到其他页面";
         } else {
