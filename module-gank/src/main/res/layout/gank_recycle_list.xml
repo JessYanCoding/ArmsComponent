@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<me.jessyan.armscomponent.commonres.view.AutoCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
                                                     xmlns:tools="http://schemas.android.com/tools"
                                                     android:layout_width="match_parent"
                                                     android:layout_height="@dimen/public_height_550px"
@@ -12,4 +12,4 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         tools:src="@color/public_black" />
-</me.jessyan.armscomponent.commonres.view.AutoCardView>
+</android.support.v7.widget.CardView>
