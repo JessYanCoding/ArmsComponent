@@ -13,8 +13,8 @@
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="@dimen/public_pad_left_15px"
-        android:paddingTop="@dimen/public_pad_top_15px"
+        android:paddingLeft="@dimen/public_pad_left_4dp"
+        android:paddingTop="@dimen/public_pad_top_4dp"
         >
 
         <android.support.v7.widget.RecyclerView

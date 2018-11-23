@@ -1,3 +1,5 @@
+//def componentName = project.getName().startsWith("module-") ? project.getName().substring(0, "module-".length()) :
+
 if (isBuildModule.toBoolean()) {
     apply plugin: 'com.android.application'
 } else {

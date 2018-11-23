@@ -3,11 +3,11 @@
                                                       xmlns:app="http://schemas.android.com/apk/res-auto"
                                                       xmlns:tools="http://schemas.android.com/tools"
                                                       android:layout_width="match_parent"
-                                                      android:layout_height="@dimen/public_height_240px"
-                                                      android:layout_marginTop="@dimen/public_mar_top_10px"
-                                                      android:layout_marginBottom="@dimen/public_mar_bottom_16px"
-                                                      android:layout_marginRight="@dimen/public_mar_right_15px"
-                                                      android:layout_marginLeft="@dimen/public_mar_left_15px"
+                                                      android:layout_height="@dimen/public_height_80dp"
+                                                      android:layout_marginTop="@dimen/public_mar_top_3dp"
+                                                      android:layout_marginBottom="@dimen/public_mar_bottom_5dp"
+                                                      android:layout_marginRight="@dimen/public_mar_right_5dp"
+                                                      android:layout_marginLeft="@dimen/public_mar_left_5dp"
                                                       app:cardBackgroundColor="@color/public_white"
                                                       app:cardCornerRadius="2dp"
                                                       app:cardElevation="2dp"
@@ -21,8 +21,8 @@
 
         <ImageView
             android:id="@+id/iv_avatar"
-            android:layout_width="@dimen/public_width_200px"
-            android:layout_height="@dimen/public_height_200px"
+            android:layout_width="@dimen/public_width_67dp"
+            android:layout_height="@dimen/public_height_67dp"
             android:scaleType="centerCrop"
             tools:src="@color/public_black"/>
 
@@ -31,7 +31,7 @@
             android:id="@+id/tv_name"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_marginLeft="@dimen/public_mar_left_18px"
+            android:layout_marginLeft="@dimen/public_mar_left_6dp"
             android:layout_height="wrap_content"
             android:textColor="@color/public_black"
             android:textSize="@dimen/public_font_18sp"

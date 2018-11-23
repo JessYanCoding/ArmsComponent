@@ -17,211 +17,51 @@
     <dimen name="public_font_48sp">48sp</dimen>
 
     //高
-    <dimen name="public_height_8px">8px</dimen>
-    <dimen name="public_height_16px">16px</dimen>
-    <dimen name="public_height_26px">26px</dimen>
-    <dimen name="public_height_32px">32px</dimen>
-    <dimen name="public_height_36px">36px</dimen>
-    <dimen name="public_height_40px">40px</dimen>
-    <dimen name="public_height_48px">48px</dimen>
-    <dimen name="public_height_50px">50px</dimen>
-    <dimen name="public_height_56px">56px</dimen>
-    <dimen name="public_height_64px">64px</dimen>
-    <dimen name="public_height_68px">68px</dimen>
-    <dimen name="public_height_70px">70px</dimen>
-    <dimen name="public_height_76px">76px</dimen>
-    <dimen name="public_height_80px">80px</dimen>
-    <dimen name="public_height_84px">84px</dimen>
-    <dimen name="public_height_88px">88px</dimen>
-    <dimen name="public_height_94px">94px</dimen>
-    <dimen name="public_height_96px">96px</dimen>
-    <dimen name="public_height_98px">98px</dimen>
-    <dimen name="public_height_99px">99px</dimen>
-    <dimen name="public_height_100px">100px</dimen>
-    <dimen name="public_height_101px">101px</dimen>
-    <dimen name="public_height_120px">120px</dimen>
-    <dimen name="public_height_130px">130px</dimen>
-    <dimen name="public_height_136px">136px</dimen>
-    <dimen name="public_height_138px">138px</dimen>
-    <dimen name="public_height_142px">142px</dimen>
-    <dimen name="public_height_160px">160px</dimen>
-    <dimen name="public_height_174px">174px</dimen>
-    <dimen name="public_height_176px">176px</dimen>
-    <dimen name="public_height_178px">178px</dimen>
-    <dimen name="public_height_194px">194px</dimen>
-    <dimen name="public_height_196px">196px</dimen>
-    <dimen name="public_height_200px">200px</dimen>
-    <dimen name="public_height_202px">202px</dimen>
-    <dimen name="public_height_236px">236px</dimen>
-    <dimen name="public_height_240px">240px</dimen>
-    <dimen name="public_height_260px">260px</dimen>
-    <dimen name="public_height_274px">274px</dimen>
-    <dimen name="public_height_294px">294px</dimen>
-    <dimen name="public_height_310px">310px</dimen>
-    <dimen name="public_height_336px">336px</dimen>
-    <dimen name="public_height_340px">340px</dimen>
-    <dimen name="public_height_394px">394px</dimen>
-    <dimen name="public_height_400px">400px</dimen>
-    <dimen name="public_height_416px">416px</dimen>
-    <dimen name="public_height_450px">450px</dimen>
-    <dimen name="public_height_476px">476px</dimen>
-    <dimen name="public_height_494px">494px</dimen>
-    <dimen name="public_height_590px">590px</dimen>
-    <dimen name="public_height_510px">510px</dimen>
-    <dimen name="public_height_550px">550px</dimen>
-    <dimen name="public_height_692px">692px</dimen>
-    <dimen name="public_height_740px">740px</dimen>
-    <dimen name="public_height_762px">762px</dimen>
-    <dimen name="public_height_830px">830px</dimen>
+    <dimen name="public_height_24dp">24dp</dimen>
+    <dimen name="public_height_50dp">50dp</dimen>
+    <dimen name="public_height_54dp">54dp</dimen>
+    <dimen name="public_height_67dp">67dp</dimen>
+    <dimen name="public_height_80dp">80dp</dimen>
+    <dimen name="public_height_174dp">174dp</dimen>
+    <dimen name="public_height_280dp">280dp</dimen>
+
 
     //宽
-    <dimen name="public_width_8px">8px</dimen>
-    <dimen name="public_width_16px">16px</dimen>
-    <dimen name="public_width_30px">30px</dimen>
-    <dimen name="public_width_32px">32px</dimen>
-    <dimen name="public_width_36px">36px</dimen>
-    <dimen name="public_width_40px">40px</dimen>
-    <dimen name="public_width_68px">68px</dimen>
-    <dimen name="public_width_70px">70px</dimen>
-    <dimen name="public_width_84px">84px</dimen>
-    <dimen name="public_width_88px">88px</dimen>
-    <dimen name="public_width_100px">100px</dimen>
-    <dimen name="public_width_120px">120px</dimen>
-    <dimen name="public_width_130px">130px</dimen>
-    <dimen name="public_width_132px">132px</dimen>
-    <dimen name="public_width_138px">138px</dimen>
-    <dimen name="public_width_150px">150px</dimen>
-    <dimen name="public_width_152px">152px</dimen>
-    <dimen name="public_width_158px">158px</dimen>
-    <dimen name="public_width_166px">166px</dimen>
-    <dimen name="public_width_176px">176px</dimen>
-    <dimen name="public_width_200px">200px</dimen>
-    <dimen name="public_width_210px">210px</dimen>
-    <dimen name="public_width_220px">220px</dimen>
-    <dimen name="public_width_240px">240px</dimen>
-    <dimen name="public_width_255px">255px</dimen>
-    <dimen name="public_width_280px">280px</dimen>
-    <dimen name="public_width_320px">320px</dimen>
-    <dimen name="public_width_346px">346px</dimen>
-    <dimen name="public_width_360px">360px</dimen>
-    <dimen name="public_width_390px">390px</dimen>
-    <dimen name="public_width_482px">482px</dimen>
-    <dimen name="public_width_510px">510px</dimen>
-    <dimen name="public_width_590px">590px</dimen>
-    <dimen name="public_width_598px">598px</dimen>
-    <dimen name="public_width_694px">694px</dimen>
+    <dimen name="public_width_24dp">24dp</dimen>
+    <dimen name="public_width_67dp">67dp</dimen>
+    <dimen name="public_width_80dp">80dp</dimen>
 
     //padding
-    <dimen name="public_padding_20px">20px</dimen>
+    <dimen name="public_padding_20dp">20dp</dimen>
 
     //paddingLeft
-    <dimen name="public_pad_left_8px">8px</dimen>
-    <dimen name="public_pad_left_10px">10px</dimen>
-    <dimen name="public_pad_left_12px">12px</dimen>
-    <dimen name="public_pad_left_15px">15px</dimen>
-    <dimen name="public_pad_left_20px">20px</dimen>
-    <dimen name="public_pad_left_26px">26px</dimen>
-    <dimen name="public_pad_left_28px">28px</dimen>
-    <dimen name="public_pad_left_40px">40px</dimen>
-    <dimen name="public_pad_left_138px">138px</dimen>
+    <dimen name="public_pad_left_4dp">4dp</dimen>
 
-    //paddingright
-    <dimen name="public_pad_right_26px">26px</dimen>
-    <dimen name="public_pad_right_28px">28px</dimen>
+    //paddingRight
+    <dimen name="public_pad_right_28dp">28dp</dimen>
 
-    //paddingtop
-    <dimen name="public_pad_top_15px">15px</dimen>
-    <dimen name="public_pad_top_20px">20px</dimen>
-    <dimen name="public_pad_top_26px">26px</dimen>
-    <dimen name="public_pad_top_44px">44px</dimen>
+    //paddingTop
+    <dimen name="public_pad_top_4dp">4dp</dimen>
 
-    //paddingbottom
-    <dimen name="public_pad_bottom_20px">20px</dimen>
-    <dimen name="public_pad_bottom_26px">26px</dimen>
-    <dimen name="public_pad_bottom_40px">40px</dimen>
+    //paddingBottom
+    <dimen name="public_pad_bottom_20dp">20dp</dimen>
 
     //marginTop
-    <dimen name="public_mar_top_10px">10px</dimen>
-    <dimen name="public_mar_top_14px">14px</dimen>
-    <dimen name="public_mar_top_15px">15px</dimen>
-    <dimen name="public_mar_top_16px">16px</dimen>
-    <dimen name="public_mar_top_18px">18px</dimen>
-    <dimen name="public_mar_top_20px">20px</dimen>
-    <dimen name="public_mar_top_24px">24px</dimen>
-    <dimen name="public_mar_top_25px">25px</dimen>
-    <dimen name="public_mar_top_26px">26px</dimen>
-    <dimen name="public_mar_top_28px">28px</dimen>
-    <dimen name="public_mar_top_30px">30px</dimen>
-    <dimen name="public_mar_top_32px">32px</dimen>
-    <dimen name="public_mar_top_34px">34px</dimen>
-    <dimen name="public_mar_top_38px">38px</dimen>
-    <dimen name="public_mar_top_40px">40px</dimen>
-    <dimen name="public_mar_top_44px">44px</dimen>
-    <dimen name="public_mar_top_50px">50px</dimen>
-    <dimen name="public_mar_top_60px">60px</dimen>
-    <dimen name="public_mar_top_98px">98px</dimen>
-    <dimen name="public_mar_top_100px">100px</dimen>
-    <dimen name="public_mar_top_108px">108px</dimen>
-    <dimen name="public_mar_top_200px">200px</dimen>
-    <dimen name="public_mar_top_310px">310px</dimen>
-    <dimen name="public_mar_top_350px">350px</dimen>
-    <dimen name="public_mar_top_647px">647px</dimen>
+    <dimen name="public_mar_top_3dp">3dp</dimen>
+    <dimen name="public_mar_top_8dp">8dp</dimen>
 
     //marginLeft
-    <dimen name="public_mar_left_8px">8px</dimen>
-    <dimen name="public_mar_left_10px">10px</dimen>
-    <dimen name="public_mar_left_15px">15px</dimen>
-    <dimen name="public_mar_left_18px">18px</dimen>
-    <dimen name="public_mar_left_20px">20px</dimen>
-    <dimen name="public_mar_left_26px">26px</dimen>
-    <dimen name="public_mar_left_28px">28px</dimen>
-    <dimen name="public_mar_left_30px">30px</dimen>
-    <dimen name="public_mar_left_40px">40px</dimen>
-    <dimen name="public_mar_left_48px">48px</dimen>
-    <dimen name="public_mar_left_58px">58px</dimen>
-    <dimen name="public_mar_left_68px">68px</dimen>
-    <dimen name="public_mar_left_80px">80px</dimen>
-    <dimen name="public_mar_left_84px">84px</dimen>
-    <dimen name="public_mar_left_90px">90px</dimen>
-    <dimen name="public_mar_left_150px">150px</dimen>
+    <dimen name="public_mar_left_4dp">4dp</dimen>
+    <dimen name="public_mar_left_5dp">5dp</dimen>
+    <dimen name="public_mar_left_6dp">6dp</dimen>
+    <dimen name="public_mar_left_10dp">10dp</dimen>
 
-    //marginright
-    <dimen name="public_mar_right_15px">15px</dimen>
-    <dimen name="public_mar_right_20px">20px</dimen>
-    <dimen name="public_mar_right_26px">26px</dimen>
-    <dimen name="public_mar_right_28px">28px</dimen>
-    <dimen name="public_mar_right_30px">30px</dimen>
-    <dimen name="public_mar_right_40px">40px</dimen>
-    <dimen name="public_mar_right_48px">48px</dimen>
-    <dimen name="public_mar_right58_8px">58.8px</dimen>
-    <dimen name="public_mar_right_80px">80px</dimen>
-    <dimen name="public_mar_right_84px">84px</dimen>
-    <dimen name="public_mar_right_90px">90px</dimen>
-    <dimen name="public_mar_right_114px">114px</dimen>
-
+    //marginRight
+    <dimen name="public_mar_right_4dp">4dp</dimen>
+    <dimen name="public_mar_right_5dp">5dp</dimen>
+    <dimen name="public_mar_right_10dp">10dp</dimen>
 
     //marginBottom
-    <dimen name="public_mar_bottom_8px">8px</dimen>
-    <dimen name="public_mar_bottom_10px">10px</dimen>
-    <dimen name="public_mar_bottom_15px">15px</dimen>
-    <dimen name="public_mar_bottom_16px">16px</dimen>
-    <dimen name="public_mar_bottom_20px">20px</dimen>
-    <dimen name="public_mar_bottom_24px">24px</dimen>
-    <dimen name="public_mar_bottom_26px">26px</dimen>
-    <dimen name="public_mar_bottom_28px">28px</dimen>
-    <dimen name="public_mar_bottom_30px">30px</dimen>
-    <dimen name="public_mar_bottom_32px">32px</dimen>
-    <dimen name="public_mar_bottom_38px">38px</dimen>
-    <dimen name="public_mar_bottom_40px">40px</dimen>
-    <dimen name="public_mar_bottom_42px">42px</dimen>
-    <dimen name="public_mar_bottom_48px">48px</dimen>
-    <dimen name="public_mar_bottom_50px">50px</dimen>
-    <dimen name="public_mar_bottom_52px">52px</dimen>
-    <dimen name="public_mar_bottom_58px">58px</dimen>
-    <dimen name="public_mar_bottom_60px">60px</dimen>
-    <dimen name="public_mar_bottom_76px">76px</dimen>
-    <dimen name="public_mar_bottom_100px">100px</dimen>
-    <dimen name="public_mar_bottom_200px">200px</dimen>
-    <dimen name="public_mar_bottom_300px">300px</dimen>
-
+    <dimen name="public_mar_bottom_4dp">4dp</dimen>
+    <dimen name="public_mar_bottom_5dp">5dp</dimen>
 </resources>
