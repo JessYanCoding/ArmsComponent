@@ -23,6 +23,7 @@ import android.support.v4.app.FragmentManager;
 import com.jess.arms.base.delegate.AppLifecycles;
 import com.jess.arms.di.module.GlobalConfigModule;
 import com.jess.arms.integration.ConfigModule;
+import com.jess.arms.integration.cache.IntelligentCache;
 import com.jess.arms.utils.ArmsUtils;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -73,7 +74,7 @@ public final class GlobalConfiguration implements ConfigModule {
                     ((RefWatcher) ArmsUtils
                             .obtainAppComponentFromContext(f.getActivity())
                             .extras()
-                            .get(RefWatcher.class.getName()))
+                            .get(IntelligentCache.getKeyOfKeep(RefWatcher.class.getName())))
                             .watch(f);
                 }
             });
