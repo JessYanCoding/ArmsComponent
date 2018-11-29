@@ -57,7 +57,7 @@ dependencies {
         //使用 runtimeOnly 依赖业务组件, 可实现业务组件的代码在编译时对宿主 App 不可见, 仅在运行时对宿主 App 可见
         runtimeOnly project(":module_zhihu")
         runtimeOnly project(":module_gank")
-        runtimeOnly project(":module-gold")
+        runtimeOnly project(":module_gold")
     }
     implementation project(":CommonRes")//因为 CommonRes 依赖了 CommonSDK, 所以如果业务模块需要公共 UI 组件就依赖 CommonRes, 如果不需要就只依赖 CommonSDK
     implementation project(":CommonService")
