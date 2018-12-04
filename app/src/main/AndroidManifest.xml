@@ -15,21 +15,24 @@
         android:allowBackup="true"
         android:icon="@mipmap/arms_component_logo"
         android:label="@string/public_app_name"
+        android:networkSecurityConfig="@xml/public_network_security_config"
         android:supportsRtl="true"
         android:theme="@style/public_AppTheme">
-        <activity android:name=".mvp.ui.activity.SplashActivity"
-                  android:theme="@style/SplashTheme"
-                  android:configChanges="orientation|screenSize"
-                  android:screenOrientation="portrait"
+        <activity
+            android:name=".mvp.ui.activity.SplashActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".mvp.ui.activity.MainActivity"
-                  android:configChanges="orientation|screenSize"
-                  android:screenOrientation="portrait"
+        <activity
+            android:name=".mvp.ui.activity.MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
             />
 
         <!-- 只要依赖 AutoSize 就必须填写设计图尺寸, 否则报错, 不想使用 AutoSize 就不要依赖 AutoSize
