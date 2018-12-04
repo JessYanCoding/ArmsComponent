@@ -15,11 +15,13 @@
         android:allowBackup="true"
         android:icon="@mipmap/gold_ic_logo"
         android:label="@string/gold_module_name"
+        android:networkSecurityConfig="@xml/public_network_security_config"
         android:supportsRtl="true"
         android:theme="@style/public_AppTheme">
-        <activity android:name=".mvp.ui.activity.GoldHomeActivity"
-                  android:configChanges="orientation|screenSize"
-                  android:screenOrientation="portrait">
+        <activity
+            android:name=".mvp.ui.activity.GoldHomeActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
