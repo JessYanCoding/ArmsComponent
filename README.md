@@ -1,4 +1,5 @@
 ![Logo](arts/arms_component_banner_v1.0.jpg)
+![Official](https://raw.githubusercontent.com/JessYanCoding/MVPArms/master/image/official.jpeg)
 
 <p align="center">
   <a href="https://travis-ci.org/JessYanCoding/ArmsComponent">
