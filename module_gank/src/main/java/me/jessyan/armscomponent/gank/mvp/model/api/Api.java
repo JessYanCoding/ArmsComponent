@@ -26,5 +26,5 @@ package me.jessyan.armscomponent.gank.mvp.model.api;
  */
 public interface Api {
     String GANK_DOMAIN_NAME = "gank";
-    String GANK_DOMAIN = "http://gank.io";
+    String GANK_DOMAIN = "https://gank.io/api/v2/";
 }
