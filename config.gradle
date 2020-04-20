@@ -3,7 +3,7 @@ ext {
     android = [
             compileSdkVersion: 28,
             buildToolsVersion: "28.0.3",
-            minSdkVersion    : 16,
+            minSdkVersion    : 19,
             targetSdkVersion : 28,
             versionCode      : 1,
             versionName      : "1.0.0"
@@ -11,14 +11,14 @@ ext {
 
     version = [
             androidSupportSdkVersion: "28.0.0",
-            retrofitSdkVersion      : "2.4.0",
-            dagger2SdkVersion       : "2.19",
-            glideSdkVersion         : "4.8.0",
-            butterknifeSdkVersion   : "8.8.1",
+            retrofitSdkVersion      : "2.6.0",
+            dagger2SdkVersion       : "2.23.2",
+            glideSdkVersion         : "4.9.0",
+            butterknifeSdkVersion   : "9.0.0",
             rxlifecycleSdkVersion   : "1.0",
             rxlifecycle2SdkVersion  : "2.2.2",
             espressoSdkVersion      : "3.0.1",
-            canarySdkVersion        : "1.5.4"
+            canarySdkVersion        : "1.6.3"
     ]
 
     dependencies = [
@@ -35,7 +35,7 @@ ext {
             "retrofit-converter-gson"  : "com.squareup.retrofit2:converter-gson:${version["retrofitSdkVersion"]}",
             "retrofit-adapter-rxjava"  : "com.squareup.retrofit2:adapter-rxjava:${version["retrofitSdkVersion"]}",
             "retrofit-adapter-rxjava2" : "com.squareup.retrofit2:adapter-rxjava2:${version["retrofitSdkVersion"]}",
-            "okhttp3"                  : "com.squareup.okhttp3:okhttp:3.11.0",
+            "okhttp3"                  : "com.squareup.okhttp3:okhttp:3.12.3",
             "okhttp-urlconnection"     : "com.squareup.okhttp:okhttp-urlconnection:2.0.0",
             "glide"                    : "com.github.bumptech.glide:glide:${version["glideSdkVersion"]}",
             "glide-compiler"           : "com.github.bumptech.glide:compiler:${version["glideSdkVersion"]}",
@@ -53,7 +53,7 @@ ext {
             "paginate"                 : "com.github.markomilos:paginate:0.5.1",
             "vlayout"                  : "com.alibaba.android:vlayout:1.1.0@aar",
             "lottie"                   : "com.airbnb.android:lottie:2.7.0",
-            "autosize"                 : "me.jessyan:autosize:1.1.1",
+            "autosize"                 : "me.jessyan:autosize:1.1.2",
 
             //rx1
             "rxandroid"                : "io.reactivex:rxandroid:1.2.1",
@@ -67,8 +67,8 @@ ext {
             "rxerrorhandler"           : "me.jessyan:rxerrorhandler:1.0.1",
 
             //rx2
-            "rxandroid2"               : "io.reactivex.rxjava2:rxandroid:2.1.0",
-            "rxjava2"                  : "io.reactivex.rxjava2:rxjava:2.2.3",
+            "rxandroid2"               : "io.reactivex.rxjava2:rxandroid:2.1.1",
+            "rxjava2"                  : "io.reactivex.rxjava2:rxjava:2.2.10",
             "rxlifecycle2"             : "com.trello.rxlifecycle2:rxlifecycle:${version["rxlifecycle2SdkVersion"]}",
             "rxlifecycle2-android"     : "com.trello.rxlifecycle2:rxlifecycle-android:${version["rxlifecycle2SdkVersion"]}",
             "rxlifecycle2-components"  : "com.trello.rxlifecycle2:rxlifecycle-components:${version["rxlifecycle2SdkVersion"]}",
