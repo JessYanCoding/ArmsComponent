@@ -43,6 +43,7 @@ public interface GankService {
      * 妹纸列表
      */
     @Headers({DOMAIN_NAME_HEADER + GANK_DOMAIN_NAME})
-    @GET("/api/data/福利/{num}/{page}")
-    Observable<GankBaseResponse<List<GankItemBean>>> getGirlList(@Path("num") int num, @Path("page") int page);
+    @GET("data/category/Girl/type/Girl/page/{page}/count/{count}")
+    Observable<GankBaseResponse<List<GankItemBean>>> getGirlList(@Path("count") int count, @Path("page") int page);
+
 }

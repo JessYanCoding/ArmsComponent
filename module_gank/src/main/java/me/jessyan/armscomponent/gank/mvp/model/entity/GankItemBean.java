@@ -15,6 +15,8 @@
  */
 package me.jessyan.armscomponent.gank.mvp.model.entity;
 
+import java.util.List;
+
 /**
  * ================================================
  * Created by JessYan on 08/05/2016 12:05
@@ -24,41 +26,60 @@ package me.jessyan.armscomponent.gank.mvp.model.entity;
  */
 public class GankItemBean {
     /**
-     * _id : 57b64b6d421aa93a804bea26
-     * createdAt : 2016-08-19T07:57:33.576Z
-     * desc : 8-19
-     * publishedAt : 2016-08-19T11:26:30.163Z
-     * source : chrome
-     * type : 福利
-     * url : http://ww4.sinaimg.cn/large/610dc034jw1f6yq5xrdofj20u00u0aby.jpg
-     * used : true
-     * who : daimajia
+     * {
+     * "_id": "5e8c80ae2bce50b3ceaa80f0",
+     * "author": "鸢媛",
+     * "category": "Girl",
+     * "createdAt": "2020-04-11 08:00:00",
+     * "desc": "我没那么坚强，只是习惯了什么事都自己扛。​",
+     * "images": [
+     *      "http://gank.io/images/1c5cebd307fd49eaa75b368b11118b61"
+     * ],
+     * "likeCounts": 0,
+     * "publishedAt": "2020-04-11 08:00:00",
+     * "stars": 1,
+     * "title": "第52期",
+     * "type": "Girl",
+     * "url": "http://gank.io/images/1c5cebd307fd49eaa75b368b11118b61",
+     * "views": 258
+     * }
      */
-    private String _id;
+    private String id;
+    private String author;
+    private String category;
     private String createdAt;
     private String desc;
+    private List<String> images = null;
+    private int likeCounts;
     private String publishedAt;
-    private String source;
+    private int stars;
+    private String title;
     private String type;
     private String url;
-    private boolean used;
-    private String who;
-    private int height;
+    private int views;
 
-    public int getHeight() {
-        return height;
+    public String getId() {
+        return id;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String get_id() {
-        return _id;
+    public String getAuthor() {
+        return author;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getCreatedAt() {
@@ -77,6 +98,22 @@ public class GankItemBean {
         this.desc = desc;
     }
 
+    public List<String> getImages() {
+        return images;
+    }
+
+    public void setImages(List<String> images) {
+        this.images = images;
+    }
+
+    public int getLikeCounts() {
+        return likeCounts;
+    }
+
+    public void setLikeCounts(int likeCounts) {
+        this.likeCounts = likeCounts;
+    }
+
     public String getPublishedAt() {
         return publishedAt;
     }
@@ -85,12 +122,20 @@ public class GankItemBean {
         this.publishedAt = publishedAt;
     }
 
-    public String getSource() {
-        return source;
+    public int getStars() {
+        return stars;
     }
 
-    public void setSource(String source) {
-        this.source = source;
+    public void setStars(int stars) {
+        this.stars = stars;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getType() {
@@ -109,19 +154,11 @@ public class GankItemBean {
         this.url = url;
     }
 
-    public boolean isUsed() {
-        return used;
+    public int getViews() {
+        return views;
     }
 
-    public void setUsed(boolean used) {
-        this.used = used;
-    }
-
-    public String getWho() {
-        return who;
-    }
-
-    public void setWho(String who) {
-        this.who = who;
+    public void setViews(int views) {
+        this.views = views;
     }
 }

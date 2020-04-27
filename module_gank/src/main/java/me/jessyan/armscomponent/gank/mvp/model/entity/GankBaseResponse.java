@@ -28,22 +28,53 @@ import java.io.Serializable;
  * ================================================
  */
 public class GankBaseResponse<T> implements Serializable {
-    private boolean error;
-    private T results;
 
-    public T getResults() {
-        return results;
+    private int page;
+    private int pageCount;
+    private int status;
+    private int totalCounts;
+    private T data;
+
+    public int getPage() {
+        return page;
     }
 
-    public void setResults(T results) {
-        this.results = results;
+    public void setPage(int page) {
+        this.page = page;
     }
 
-    public boolean getError() {
-        return error;
+    public int getPageCount() {
+        return pageCount;
     }
 
-    public void setError(boolean error) {
-        this.error = error;
+    public void setPageCount(int pageCount) {
+        this.pageCount = pageCount;
     }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public int getTotalCounts() {
+        return totalCounts;
+    }
+
+    public void setTotalCounts(int totalCounts) {
+        this.totalCounts = totalCounts;
+    }
+
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+
 }

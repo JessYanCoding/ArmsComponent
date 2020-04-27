@@ -108,11 +108,11 @@ public class GankHomePresenter extends BasePresenter<GankHomeContract.Model, Gan
                         lastPage = lastPage + 1;
                         if (pullToRefresh) mDatas.clear();//如果是下拉刷新则清空列表
                         preEndIndex = mDatas.size();//更新之前列表总长度,用于确定加载更多的起始位置
-                        mDatas.addAll(datas.getResults());
+                        mDatas.addAll(datas.getData());
                         if (pullToRefresh)
                             mAdapter.notifyDataSetChanged();
                         else
-                            mAdapter.notifyItemRangeInserted(preEndIndex, datas.getResults().size());
+                            mAdapter.notifyItemRangeInserted(preEndIndex, datas.getData().size());
                     }
                 });
     }
